@@ -64,13 +64,25 @@ const RESTAURANT_IMAGES: Record<string, string> = {
   "Swan Oyster Depot": "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=800&h=600&fit=crop",
 };
 
+// --- Categories ---
+
+const CATEGORIES = [
+  { id: "restaurants", name: "Restaurants", icon: "🍔", active: true },
+  { id: "products", name: "Products", icon: "📦", active: false },
+  { id: "travel", name: "Travel", icon: "✈️", active: false },
+  { id: "services", name: "Services", icon: "🔧", active: false },
+  { id: "apps", name: "Apps", icon: "📱", active: false },
+  { id: "software", name: "Software", icon: "💻", active: false },
+];
+
 // --- Helpers ---
 
-function getTier(score: number): { label: string; color: string } {
-  if (score >= 95) return { label: "Exceptional", color: "text-gold" };
-  if (score >= 85) return { label: "Outstanding", color: "text-gold" };
-  if (score >= 70) return { label: "Notable", color: "text-secondary" };
-  return { label: "Listed", color: "text-secondary" };
+function getTier(score: number): { label: string; color: string; badge: string } {
+  if (score >= 95) return { label: "Exceptional", color: "text-gold", badge: "💚 HALL OF FAME" };
+  if (score >= 85) return { label: "Outstanding", color: "text-gold", badge: "💚 HALL OF FAME" };
+  if (score >= 70) return { label: "Notable", color: "text-secondary", badge: "" };
+  if (score >= 50) return { label: "Mixed", color: "text-secondary", badge: "" };
+  return { label: "Promoted", color: "text-red-500", badge: "🧾 WALL OF SHAME" };
 }
 
 function getRedditMentions(reasons: string[]): number {
@@ -94,9 +106,13 @@ function RestaurantCard({
   const tier = getTier(restaurant.hype_score);
   const imageUrl = RESTAURANT_IMAGES[restaurant.name];
   const mentions = getRedditMentions(restaurant.trending_reasons);
+  const isHallOfFame = restaurant.hype_score >= 85;
+  const isWallOfShame = restaurant.is_paid_heavy || restaurant.hype_score < 50;
 
   return (
-    <div className="rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+    <div className={`rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 border-2 ${
+      isHallOfFame ? "border-emerald-200" : isWallOfShame ? "border-red-200" : "border-gray-100"
+    }`}>
       {/* Hero Image */}
       <div className="relative aspect-[4/3] overflow-hidden group">
         {imageUrl ? (
@@ -113,17 +129,23 @@ function RestaurantCard({
           </div>
         )}
         {/* Rank badge top-left */}
-        <div className="absolute top-3 left-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-sm font-bold text-foreground shadow-sm">
+        <div className={`absolute top-3 left-3 w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold shadow-sm ${
+          rank <= 3 ? "bg-gold text-white" : "bg-white/90 backdrop-blur-sm text-foreground"
+        }`}>
           {rank}
         </div>
         {/* Score badge top-right */}
-        <div className="absolute top-3 right-3 w-11 h-11 rounded-full bg-gold flex items-center justify-center text-sm font-bold text-white shadow-sm">
+        <div className={`absolute top-3 right-3 w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold text-white shadow-sm ${
+          isHallOfFame ? "bg-emerald-500" : isWallOfShame ? "bg-red-500" : "bg-gold"
+        }`}>
           {Math.round(restaurant.hype_score)}
         </div>
-        {/* Paid advertiser badge */}
-        {restaurant.is_paid_heavy && (
-          <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full bg-red-500/90 backdrop-blur-sm text-white text-xs font-semibold">
-            Paid Advertiser
+        {/* Status badge */}
+        {tier.badge && (
+          <div className={`absolute bottom-3 left-3 px-2.5 py-1 rounded-full backdrop-blur-sm text-white text-xs font-semibold ${
+            isHallOfFame ? "bg-emerald-500/90" : "bg-red-500/90"
+          }`}>
+            {tier.badge}
           </div>
         )}
       </div>
@@ -145,7 +167,7 @@ function RestaurantCard({
 
         {mentions > 0 && (
           <p className="text-xs text-secondary mb-3">
-            Buzzing on Reddit ({mentions} mentions)
+            {mentions} organic Reddit mentions
           </p>
         )}
 
@@ -156,7 +178,7 @@ function RestaurantCard({
               onClick={() => setShowPosts(!showPosts)}
               className="text-xs font-semibold text-gold hover:text-gold/80 transition-colors flex items-center gap-1"
             >
-              View Reddit Buzz ({restaurant.reddit_posts.length})
+              Show Receipts ({restaurant.reddit_posts.length})
               <svg
                 className={`w-3 h-3 transition-transform ${showPosts ? "rotate-180" : ""}`}
                 fill="none"
@@ -196,6 +218,8 @@ function RestaurantCard({
 // --- Main Page ---
 
 export default function Home() {
+  const [activeCategory, setActiveCategory] = useState("restaurants");
+  const [activeTab, setActiveTab] = useState<"all" | "fame" | "shame">("all");
   const [activeFilter, setActiveFilter] = useState<string>("All");
   const [email, setEmail] = useState("");
 
@@ -209,54 +233,102 @@ export default function Home() {
     ...Array.from(new Set(restaurants.map((r) => r.neighborhood))).sort(),
   ];
 
-  const filtered =
-    activeFilter === "All"
-      ? restaurants
-      : restaurants.filter((r) => r.neighborhood === activeFilter);
+  const hallOfFame = restaurants.filter((r) => r.hype_score >= 85);
+  const wallOfShame = restaurants.filter((r) => r.is_paid_heavy || r.hype_score < 50);
 
-  const exceptionalCount = restaurants.filter((r) => r.hype_score >= 95).length;
-  const neighborhoodCount = new Set(restaurants.map((r) => r.neighborhood)).size;
+  const getFilteredList = () => {
+    let list = restaurants;
+    if (activeTab === "fame") list = hallOfFame;
+    if (activeTab === "shame") list = wallOfShame;
+    if (activeFilter !== "All") {
+      list = list.filter((r) => r.neighborhood === activeFilter);
+    }
+    return list;
+  };
+
+  const filtered = getFilteredList();
 
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-[#1A1A1A] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
-          <div className="flex items-center gap-3 mb-8">
-            <svg className="w-8 h-8 text-gold" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="14" stroke="currentColor" strokeWidth="2.5" />
-              <path d="M10 16l4 4 8-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span className="text-xl font-bold tracking-tight">Clarity</span>
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-3">
+              <svg className="w-8 h-8 text-gold" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="14" stroke="currentColor" strokeWidth="2.5" />
+                <path d="M10 16l4 4 8-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="text-xl font-bold tracking-tight">Clarity</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-white/40">
+              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+              Live · San Francisco
+            </div>
           </div>
 
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4 max-w-3xl">
-            The Real Hype Guide
+            The trust layer for the internet.
           </h1>
           <p className="text-lg text-white/60 max-w-xl mb-8">
-            San Francisco restaurants ranked by genuine organic buzz, not paid advertising. What people actually talk about.
+            See who's <span className="text-emerald-400 font-semibold">real</span> and who's <span className="text-red-400 font-semibold">paying for it</span> — across everything you buy.
           </p>
 
-          {/* Stats bar */}
-          <div className="flex gap-8 text-sm">
-            <div>
-              <span className="text-2xl font-bold text-gold">{restaurants.length}</span>
-              <p className="text-white/40 mt-0.5">Restaurants</p>
-            </div>
-            <div>
-              <span className="text-2xl font-bold text-gold">{exceptionalCount}</span>
-              <p className="text-white/40 mt-0.5">Exceptional</p>
-            </div>
-            <div>
-              <span className="text-2xl font-bold text-gold">{neighborhoodCount}</span>
-              <p className="text-white/40 mt-0.5">Neighborhoods</p>
-            </div>
+          {/* Category Pills */}
+          <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => cat.active && setActiveCategory(cat.id)}
+                disabled={!cat.active}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
+                  activeCategory === cat.id
+                    ? "bg-gold text-white"
+                    : cat.active
+                    ? "bg-white/10 text-white hover:bg-white/20"
+                    : "bg-white/5 text-white/30 cursor-not-allowed"
+                }`}
+              >
+                <span>{cat.icon}</span>
+                <span>{cat.name}</span>
+                {!cat.active && <span className="text-xs opacity-50">Soon</span>}
+              </button>
+            ))}
           </div>
         </div>
       </header>
 
-      {/* Sticky Filter Bar */}
-      <div className="sticky top-0 z-20 bg-background/80 backdrop-blur-md border-b border-gray-200">
+      {/* Tab Navigation */}
+      <div className="sticky top-0 z-20 bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex">
+            {[
+              { id: "all", label: `🏆 All Rankings (${restaurants.length})` },
+              { id: "fame", label: `💚 Hall of Fame (${hallOfFame.length})` },
+              { id: "shame", label: `🧾 Wall of Shame (${wallOfShame.length})` },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as typeof activeTab)}
+                className={`flex-1 py-4 text-sm font-semibold transition-all border-b-2 ${
+                  activeTab === tab.id
+                    ? tab.id === "fame"
+                      ? "border-emerald-500 text-emerald-600"
+                      : tab.id === "shame"
+                      ? "border-red-500 text-red-600"
+                      : "border-gold text-gold"
+                    : "border-transparent text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Neighborhood Filter */}
+      <div className="bg-background border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex gap-2 overflow-x-auto no-scrollbar">
             {neighborhoods.map((n) => (
@@ -276,10 +348,65 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Membership Banner */}
+      <div className="bg-gradient-to-r from-[#1A1A1A] to-[#2A2A2A]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-center sm:text-left">
+              <p className="text-white font-semibold">Stop getting played.</p>
+              <p className="text-white/50 text-sm">$9/mo for all categories, full receipts, and browser extension.</p>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-white/30 text-sm">Coming Q2 2026</span>
+              <form
+                className="flex gap-2"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  window.open(`mailto:jetct.theo@gmail.com?subject=Clarity%20Membership%20Waitlist&body=Add%20me:%20${email}`);
+                  alert("You're on the list!");
+                  setEmail("");
+                }}
+              >
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@email.com"
+                  required
+                  className="px-4 py-2 rounded-lg text-[#1A1A1A] text-sm w-44 focus:outline-none focus:ring-2 focus:ring-gold"
+                />
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-gold text-white font-semibold text-sm rounded-lg hover:bg-gold/90 transition-colors"
+                >
+                  Join Waitlist
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Card Grid */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+        {/* Tab description */}
+        {activeTab === "fame" && (
+          <div className="mb-8 p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
+            <p className="text-emerald-800 text-sm">
+              <span className="font-semibold">💚 Hall of Fame:</span> These restaurants earned their reputation through genuine word-of-mouth. High organic buzz, minimal paid promotion.
+            </p>
+          </div>
+        )}
+        {activeTab === "shame" && (
+          <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-xl">
+            <p className="text-red-800 text-sm">
+              <span className="font-semibold">🧾 Wall of Shame:</span> Heavy ad spend detected. These places are paying for your attention more than earning it.
+            </p>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {filtered.map((restaurant, index) => {
+          {filtered.map((restaurant) => {
             const globalRank = restaurants.indexOf(restaurant) + 1;
             return (
               <RestaurantCard
@@ -293,57 +420,37 @@ export default function Home() {
 
         {filtered.length === 0 && (
           <div className="text-center py-16">
-            <p className="text-secondary text-lg">No restaurants found in this neighborhood.</p>
+            <p className="text-secondary text-lg">No restaurants found.</p>
           </div>
         )}
       </main>
 
-      {/* CTA Banner */}
-      <section className="bg-[#1A1A1A] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-            <div>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold mb-2">Get Clarity Everywhere</h2>
-              <p className="text-white/50">Browser extension coming soon. See real hype scores on Yelp, Google, DoorDash.</p>
-            </div>
-            <form
-              className="flex gap-2 shrink-0"
-              onSubmit={(e) => {
-                e.preventDefault();
-                window.open(`mailto:jetct.theo@gmail.com?subject=Clarity%20Waitlist&body=Add%20me:%20${email}`);
-                alert("You're on the list!");
-                setEmail("");
-              }}
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@email.com"
-                required
-                className="px-4 py-2.5 rounded-xl text-[#1A1A1A] text-sm w-48 focus:outline-none focus:ring-2 focus:ring-gold"
-              />
-              <button
-                type="submit"
-                className="px-5 py-2.5 bg-gold text-white font-semibold text-sm rounded-xl hover:bg-gold/90 transition-colors"
-              >
-                Join Waitlist
-              </button>
-            </form>
+      {/* Coming Soon Categories */}
+      <section className="bg-[#FAFAF5] border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <h2 className="font-serif text-2xl font-bold text-center mb-8">Coming Soon: Every Category</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {CATEGORIES.filter(c => !c.active).map((cat) => (
+              <div key={cat.id} className="bg-white rounded-xl p-4 text-center border border-gray-200">
+                <div className="text-3xl mb-2">{cat.icon}</div>
+                <div className="font-semibold text-foreground">{cat.name}</div>
+                <div className="text-xs text-secondary mt-1">Q2-Q3 2026</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1A1A1A] border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="bg-[#1A1A1A] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
-              <svg className="w-6 h-6 text-white/40" viewBox="0 0 32 32" fill="none">
+              <svg className="w-8 h-8 text-white/40" viewBox="0 0 32 32" fill="none">
                 <circle cx="16" cy="16" r="14" stroke="currentColor" strokeWidth="2" />
                 <path d="M10 16l4 4 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span className="font-semibold text-white/60">Clarity</span>
+              <span className="font-semibold text-lg">Clarity</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-white/40">
               <a href="/whitepaper.html" className="hover:text-white transition-colors">Methodology</a>
@@ -351,9 +458,11 @@ export default function Home() {
               <a href="mailto:jetct.theo@gmail.com" className="hover:text-white transition-colors">Contact</a>
             </div>
           </div>
-          <p className="text-center text-xs text-white/30 mt-6">
-            Scores reflect organic social buzz, not paid placements. Opinions, not facts.
-          </p>
+          <div className="mt-8 pt-8 border-t border-white/10 text-center">
+            <p className="text-sm text-white/30">
+              Scores reflect organic social buzz vs paid promotion. Opinions, not facts.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
