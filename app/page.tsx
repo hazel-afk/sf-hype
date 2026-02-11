@@ -2,22 +2,40 @@
 
 import { useState } from "react";
 
-// --- Official Seal Component ---
+// --- Owl Logo Component ---
 
-function OfficialSeal({ classLevel, size = "md" }: { classLevel: string; size?: "sm" | "md" | "lg" | "xl" }) {
+function OwlLogo({ size = "md", variant = "full" }: { size?: "sm" | "md" | "lg" | "xl" | "hero"; variant?: "full" | "minimal" }) {
   const sizes = {
-    sm: { outer: "w-11 h-11", inner: "w-7 h-7", roman: "text-xs" },
-    md: { outer: "w-14 h-14", inner: "w-9 h-9", roman: "text-sm" },
-    lg: { outer: "w-20 h-20", inner: "w-13 h-13", roman: "text-xl" },
-    xl: { outer: "w-32 h-32", inner: "w-20 h-20", roman: "text-3xl" },
+    sm: "w-8 h-8",
+    md: "w-10 h-10",
+    lg: "w-14 h-14",
+    xl: "w-20 h-20",
+    hero: "w-32 h-32",
   };
-  const s = sizes[size];
 
   return (
-    <div className={`${s.outer} rounded-full border-[3px] border-[#1a472a] flex items-center justify-center bg-white shadow-lg`}>
-      <div className={`${s.inner} rounded-full bg-[#1a472a] flex items-center justify-center`}>
-        <span className={`font-serif font-bold text-white ${s.roman}`}>{classLevel}</span>
-      </div>
+    <div className={`${sizes[size]} flex items-center justify-center`}>
+      <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
+        {/* Owl body */}
+        <ellipse cx="50" cy="58" rx="32" ry="28" fill="currentColor" className="text-[#1a472a]" />
+        {/* Owl head */}
+        <circle cx="50" cy="35" r="26" fill="currentColor" className="text-[#1a472a]" />
+        {/* Ear tufts */}
+        <path d="M28 18 L35 30 L24 28 Z" fill="currentColor" className="text-[#1a472a]" />
+        <path d="M72 18 L65 30 L76 28 Z" fill="currentColor" className="text-[#1a472a]" />
+        {/* Left eye circle */}
+        <circle cx="38" cy="35" r="12" fill="white" />
+        <circle cx="38" cy="35" r="6" fill="currentColor" className="text-[#1a472a]" />
+        <circle cx="40" cy="33" r="2" fill="white" />
+        {/* Right eye circle */}
+        <circle cx="62" cy="35" r="12" fill="white" />
+        <circle cx="62" cy="35" r="6" fill="currentColor" className="text-[#1a472a]" />
+        <circle cx="64" cy="33" r="2" fill="white" />
+        {/* Beak */}
+        <path d="M50 42 L46 50 L50 48 L54 50 Z" fill="#d4a574" />
+        {/* Chest pattern */}
+        <ellipse cx="50" cy="65" rx="16" ry="14" fill="white" opacity="0.2" />
+      </svg>
     </div>
   );
 }
@@ -73,16 +91,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full border-2 border-[#1a472a] flex items-center justify-center bg-white">
-                <div className="w-6 h-6 rounded-full bg-[#1a472a] flex items-center justify-center">
-                  <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                    <path d="M5 12l5 5L19 7" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              </div>
+              <OwlLogo size="md" />
               <div>
-                <div className="font-semibold text-neutral-900 text-sm">Organic Popularity Certification</div>
-                <div className="text-[11px] text-neutral-500">The Standard for Earned Reputation</div>
+                <div className="font-semibold text-neutral-900 text-sm">OWL</div>
+                <div className="text-[11px] text-neutral-500">We watch so you know what's real</div>
               </div>
             </div>
             <nav className="hidden sm:flex items-center gap-5 text-sm text-neutral-600">
@@ -107,8 +119,7 @@ export default function Home() {
                 The metric that makes advertising obsolete
               </h1>
               <p className="text-lg text-neutral-600 mb-8 leading-relaxed max-w-lg">
-                $650 billion is spent yearly on advertising. OPC gives consumers a way to find
-                what's genuinely good—redirecting capital from promotion to product.
+                $650 billion is spent yearly on advertising. OWL shows consumers what's genuinely worth it—redirecting capital from promotion to product.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href="/deck.html" className="px-5 py-2.5 bg-[#1a472a] text-white text-sm font-medium rounded-lg hover:bg-[#1a472a]/90 transition-colors">
@@ -124,17 +135,13 @@ export default function Home() {
             <div className="flex justify-center">
               <div className="relative">
                 <div className="w-48 h-48 rounded-full border-[4px] border-[#1a472a] flex items-center justify-center bg-white shadow-xl">
-                  <div className="w-32 h-32 rounded-full bg-[#1a472a] flex items-center justify-center">
-                    <svg className="w-16 h-16 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12l5 5L19 7" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
+                  <OwlLogo size="hero" />
                 </div>
                 <div className="absolute -top-2 -right-2 px-3 py-1 bg-white border border-neutral-200 rounded-full shadow-sm">
                   <span className="text-xs font-semibold text-[#1a472a]">Class I</span>
                 </div>
                 <div className="absolute -bottom-2 -left-2 px-3 py-1 bg-white border border-neutral-200 rounded-full shadow-sm">
-                  <span className="text-xs font-medium text-neutral-600">Verified Organic</span>
+                  <span className="text-xs font-medium text-neutral-600">Verified Worthy</span>
                 </div>
               </div>
             </div>
@@ -172,22 +179,24 @@ export default function Home() {
       <section className="bg-[#fafaf8] border-b border-neutral-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-3">How OPC Works</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-3">How OWL Works</h2>
             <p className="text-neutral-600 max-w-2xl mx-auto">
-              We analyze publicly observable signals to measure the ratio of organic to paid visibility.
-              High organic score = earned reputation.
+              We observe publicly available signals to measure worth vs hype.
+              High OWL score = genuinely worth it.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-3 gap-6">
             {[
-              { class: "I", range: "90-100%", desc: "Exceptional organic reputation. Minimal advertising footprint." },
-              { class: "II", range: "75-89%", desc: "Strong organic presence. Limited promotional spend." },
-              { class: "III", range: "60-74%", desc: "Verified organic presence. Balanced visibility." },
+              { class: "I", range: "90-100%", desc: "Exceptional worth. Minimal advertising. Reputation almost entirely earned." },
+              { class: "II", range: "75-89%", desc: "Strong legitimacy. Limited promotion. Primarily word-of-mouth driven." },
+              { class: "III", range: "60-74%", desc: "Verified worth. Balanced visibility. Genuine with some promotion." },
             ].map((c) => (
               <div key={c.class} className="bg-white border border-neutral-200 rounded-lg p-6 text-center">
                 <div className="flex justify-center mb-4">
-                  <OfficialSeal classLevel={c.class} size="lg" />
+                  <div className="w-16 h-16 rounded-full bg-[#1a472a] flex items-center justify-center">
+                    <span className="text-2xl font-serif font-bold text-white">{c.class}</span>
+                  </div>
                 </div>
                 <h3 className="font-bold text-neutral-900 text-lg mb-1">Class {c.class}</h3>
                 <div className="text-sm text-[#1a472a] font-semibold mb-2">{c.range}</div>
@@ -204,7 +213,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-3">Everything You Buy</h2>
             <p className="text-neutral-600 max-w-2xl mx-auto">
-              OPC certification is expanding across every consumer category. Know what's real before you spend.
+              OWL is expanding across every consumer category. Know what's worth it before you spend.
             </p>
           </div>
 
@@ -217,8 +226,8 @@ export default function Home() {
               }
               title="Restaurants"
               status="live"
-              description="Bay Area restaurants rated by organic buzz vs paid promotion."
-              stats="25 certified"
+              description="Bay Area restaurants rated by real buzz vs paid promotion."
+              stats="25 verified"
             />
             <CategoryCard
               icon={
@@ -263,7 +272,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">The Great Reallocation</h2>
             <p className="text-xl text-white/80 mb-8 leading-relaxed">
-              When consumers can identify organic popularity at scale, advertising becomes optional.
+              When consumers can identify what's truly worth it, advertising becomes optional.
               Companies redirect billions from promotion to product, wages, and R&D.
             </p>
             <div className="grid sm:grid-cols-3 gap-6 mb-10">
@@ -303,7 +312,7 @@ export default function Home() {
               </h2>
               <p className="text-neutral-600 leading-relaxed mb-6">
                 Apple proves you don't need massive ad budgets when you build products people
-                genuinely want. OPC makes this path visible and viable for every company.
+                genuinely want. OWL makes this path visible and viable for every company.
               </p>
               <div className="flex gap-4">
                 <div className="flex-1 p-4 bg-[#1a472a]/5 rounded-lg border border-[#1a472a]/10">
@@ -336,7 +345,7 @@ export default function Home() {
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-4">Join the movement</h2>
             <p className="text-neutral-600 mb-8">
-              Be the first to know when OPC expands to new categories.
+              Be the first to know when OWL expands to new categories.
               Help us redirect capital from advertising to product.
             </p>
             <form className="flex gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
@@ -364,17 +373,11 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="md:col-span-2">
               <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-8 h-8 rounded-full border-2 border-neutral-600 flex items-center justify-center">
-                  <div className="w-5 h-5 rounded-full bg-neutral-600 flex items-center justify-center">
-                    <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                      <path d="M5 12l5 5L19 7" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                </div>
-                <span className="font-semibold">Organic Popularity Certification</span>
+                <OwlLogo size="sm" />
+                <span className="font-semibold">OWL</span>
               </div>
               <p className="text-sm text-neutral-400 max-w-sm">
-                The standard for earned reputation. Like USDA Organic, but for trust.
+                We watch so you know what's real.
               </p>
             </div>
             <div>
@@ -395,10 +398,10 @@ export default function Home() {
           </div>
           <div className="pt-8 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-neutral-500">
-              © 2026 Organic Popularity Certification. All rights reserved.
+              © 2026 OWL Observatory. All rights reserved.
             </p>
             <p className="text-xs text-neutral-600">
-              OPC ratings are assessments based on publicly observable data. Certification cannot be purchased.
+              OWL ratings are assessments based on publicly observable data. Worth cannot be purchased.
             </p>
           </div>
         </div>
