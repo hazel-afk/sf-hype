@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPC - Full Build Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #fafaf8;
+      color: #171717;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    header {
+      text-align: center;
+      padding-bottom: 48px;
+      border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 48px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: #1a472a;
+      color: white;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #0a0a0a;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      font-size: 18px;
+      color: #525252;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0a0a0a;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #1a472a;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #171717;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+    h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a472a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 15px;
+      color: #404040;
+      margin-bottom: 16px;
+    }
+    ul, ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+    li {
+      font-size: 15px;
+      color: #404040;
+      margin-bottom: 8px;
+    }
+    .highlight {
+      background: #1a472a;
+      color: white;
+      padding: 24px;
+      border-radius: 8px;
+      margin: 24px 0;
+    }
+    .highlight h3 { color: white; margin-top: 0; }
+    .highlight p { color: rgba(255,255,255,0.85); }
+    .box {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .box-title {
+      font-weight: 600;
+      color: #0a0a0a;
+      margin-bottom: 8px;
+    }
+    .timeline {
+      border-left: 2px solid #1a472a;
+      padding-left: 24px;
+      margin: 24px 0;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -29px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      background: #1a472a;
+      border-radius: 50%;
+    }
+    .timeline-title {
+      font-weight: 600;
+      color: #0a0a0a;
+      margin-bottom: 4px;
+    }
+    .timeline-meta {
+      font-size: 13px;
+      color: #1a472a;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    th {
+      background: #fafaf8;
+      font-weight: 600;
+      color: #0a0a0a;
+    }
+    .money { color: #1a472a; font-weight: 600; }
+    .section-number {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: #1a472a;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid #e5e5e5;
+      text-align: center;
+      color: #737373;
+      font-size: 13px;
+    }
+    @media print {
+      body { background: white; }
+      .container { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <path d="M5 12l5 5L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        BUILD DOCUMENT
+      </div>
+      <h1>Organic Popularity Certification</h1>
+      <p class="subtitle">Complete Build Plan & Business Strategy</p>
+    </header>
+
+    <main>
+      <!-- VISION -->
+      <h2><span class="section-number">1</span> Vision</h2>
+
+      <div class="highlight">
+        <h3>The Problem</h3>
+        <p>
+          82% of consumers don't trust online reviews. $650B is spent annually on digital advertising.
+          Every recommendation platform makes money selling ads to the businesses they rank.
+          AI-generated content is making it worse. Trust on the internet is broken.
+        </p>
+      </div>
+
+      <h3>The Insight</h3>
+      <p>
+        Some businesses earn their reputation. Others buy it. The difference is measurable.
+        Apple spends $1.8B on ads while Samsung spends $14B. Tesla spends $0. In-N-Out spends $0.
+        These companies have organic popularity that can't be bought.
+      </p>
+
+      <h3>The Solution</h3>
+      <p>
+        OPC (Organic Popularity Certification) is an independent authority that certifies businesses
+        based on the ratio of organic visibility to paid promotion. Like USDA Organic certifies food,
+        OPC certifies trust. Certification cannot be purchased or influenced.
+      </p>
+
+      <!-- PRODUCT -->
+      <h2><span class="section-number">2</span> Product</h2>
+
+      <h3>Classification System</h3>
+      <table>
+        <tr>
+          <th>Class</th>
+          <th>Organic Score</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td><strong>Class I</strong></td>
+          <td>90-100%</td>
+          <td>Exceptional organic reputation. Near-zero ad reliance.</td>
+        </tr>
+        <tr>
+          <td><strong>Class II</strong></td>
+          <td>75-89%</td>
+          <td>Strong organic presence. Primarily word-of-mouth driven.</td>
+        </tr>
+        <tr>
+          <td><strong>Class III</strong></td>
+          <td>60-74%</td>
+          <td>Verified organic presence with some paid amplification.</td>
+        </tr>
+        <tr>
+          <td><strong>Not Certified</strong></td>
+          <td>&lt;60%</td>
+          <td>Insufficient organic signals. Heavy paid reliance.</td>
+        </tr>
+      </table>
+
+      <h3>Certification Components</h3>
+      <ul>
+        <li><strong>Official Seal:</strong> Visual badge businesses can display (like USDA Organic)</li>
+        <li><strong>Certification ID:</strong> Unique identifier (OPC-2026-XXXXX) for verification</li>
+        <li><strong>Source Data:</strong> Transparent methodology showing how score was calculated</li>
+        <li><strong>Registry:</strong> Public database of all certified entities</li>
+      </ul>
+
+      <h3>Product Roadmap</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-title">Phase 1: Registry (Now)</div>
+          <div class="timeline-meta">Q1 2026</div>
+          <p>Public certification registry for SF restaurants. Establish methodology. Build credibility.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">Phase 2: Browser Extension</div>
+          <div class="timeline-meta">Q2 2026</div>
+          <p>Chrome/Firefox extension showing OPC ratings on Yelp, Google, Amazon, DoorDash in real-time.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">Phase 3: Category Expansion</div>
+          <div class="timeline-meta">Q3-Q4 2026</div>
+          <p>Expand beyond restaurants: Products, Hotels, Software, Services. National coverage.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">Phase 4: API & Enterprise</div>
+          <div class="timeline-meta">2027</div>
+          <p>API for platforms to integrate OPC ratings. Enterprise analytics dashboard.</p>
+        </div>
+      </div>
+
+      <!-- METHODOLOGY -->
+      <h2><span class="section-number">3</span> Methodology</h2>
+
+      <h3>Data Sources</h3>
+      <div class="box">
+        <div class="box-title">Organic Signals (Positive)</div>
+        <ul style="margin-bottom: 0;">
+          <li>Reddit mentions and discussions (high weight - hard to game)</li>
+          <li>Twitter/X organic mentions</li>
+          <li>TikTok organic content</li>
+          <li>Google Trends search interest</li>
+          <li>User-generated content velocity</li>
+          <li>Forum discussions (HN, niche communities)</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <div class="box-title">Paid Signals (Negative)</div>
+        <ul style="margin-bottom: 0;">
+          <li>Platform advertising (Yelp Ads, Google Ads)</li>
+          <li>Meta Ad Library presence</li>
+          <li>Influencer sponsorship detection</li>
+          <li>Review velocity anomalies (fake review patterns)</li>
+          <li>Coordinated PR placement patterns</li>
+        </ul>
+      </div>
+
+      <h3>Scoring Formula</h3>
+      <div class="box" style="background: #0a0a0a; color: #e5e5e5; font-family: monospace;">
+        Organic Score = (Organic Signals / Total Visibility) × 100<br><br>
+        Where Total Visibility = Organic Signals + Paid Signals<br><br>
+        Signals are weighted by reliability and resistance to manipulation.
+      </div>
+
+      <h3>Key Principles</h3>
+      <ol>
+        <li><strong>Independence:</strong> OPC never accepts payment from rated entities</li>
+        <li><strong>Transparency:</strong> Methodology is public. Source data is viewable.</li>
+        <li><strong>Objectivity:</strong> Scores are calculated algorithmically, not editorially</li>
+        <li><strong>Auditability:</strong> Each certification includes verification trail</li>
+      </ol>
+
+      <!-- BUSINESS MODEL -->
+      <h2><span class="section-number">4</span> Business Model</h2>
+
+      <h3>Revenue Streams</h3>
+      <table>
+        <tr>
+          <th>Stream</th>
+          <th>Model</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td><strong>Browser Extension</strong></td>
+          <td>Freemium</td>
+          <td>Free / $9/mo premium</td>
+        </tr>
+        <tr>
+          <td><strong>Verification Badge</strong></td>
+          <td>Annual license</td>
+          <td>$99-499/year</td>
+        </tr>
+        <tr>
+          <td><strong>API Access</strong></td>
+          <td>Usage-based</td>
+          <td>$0.01-0.10/call</td>
+        </tr>
+        <tr>
+          <td><strong>Enterprise Analytics</strong></td>
+          <td>SaaS</td>
+          <td>$5K-50K/year</td>
+        </tr>
+        <tr>
+          <td><strong>Platform Licensing</strong></td>
+          <td>Contract</td>
+          <td>$50K-500K/year</td>
+        </tr>
+        <tr>
+          <td><strong>Data Licensing</strong></td>
+          <td>Contract</td>
+          <td>$25K-100K/year</td>
+        </tr>
+      </table>
+
+      <h3>Unit Economics</h3>
+      <div class="box">
+        <div class="box-title">Browser Extension (Core Growth Driver)</div>
+        <ul style="margin-bottom: 0;">
+          <li>Free tier: Unlimited, shows ratings on 3 platforms</li>
+          <li>Premium ($9/mo): All platforms, full source data, alerts</li>
+          <li>Target: 5% free-to-paid conversion</li>
+          <li>At 1M free users → 50K paid → $5.4M ARR</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <div class="box-title">Verification Badge</div>
+        <ul style="margin-bottom: 0;">
+          <li>Certified businesses can embed official OPC badge on their site</li>
+          <li>Badge links to verification page on OPC registry</li>
+          <li>Class I: $499/yr, Class II: $299/yr, Class III: $99/yr</li>
+          <li>At 10K certified businesses → $2-3M ARR</li>
+        </ul>
+      </div>
+
+      <h3>Why Businesses Pay (Even Though Rating Is Free)</h3>
+      <p>
+        The rating is always free and cannot be influenced. But certified businesses want to:
+      </p>
+      <ul>
+        <li>Display the official badge (like SSL certificates or Michelin stars)</li>
+        <li>Get analytics on their organic score over time</li>
+        <li>Benchmark against competitors</li>
+        <li>Receive alerts when score changes</li>
+      </ul>
+
+      <!-- GO TO MARKET -->
+      <h2><span class="section-number">5</span> Go-to-Market</h2>
+
+      <h3>Phase 1: Establish Authority</h3>
+      <div class="box">
+        <div class="box-title">Content & PR</div>
+        <ul style="margin-bottom: 0;">
+          <li>Annual "State of Organic Trust" report (gets press, establishes thought leadership)</li>
+          <li>"Dead Internet Theory" narrative - position as solution to AI/bot/fake review crisis</li>
+          <li>High-profile certifications: Call out Apple, Tesla, In-N-Out as Class I examples</li>
+          <li>Wall of Shame: Highlight heavily-promoted brands with low organic scores</li>
+        </ul>
+      </div>
+
+      <h3>Phase 2: Consumer Adoption</h3>
+      <div class="box">
+        <div class="box-title">Browser Extension Launch</div>
+        <ul style="margin-bottom: 0;">
+          <li>Free extension showing ratings on Yelp, Google, Amazon</li>
+          <li>Viral loop: Users share ratings on social media</li>
+          <li>Target: 100K installs in first 6 months</li>
+          <li>Partner with consumer advocacy groups</li>
+        </ul>
+      </div>
+
+      <h3>Phase 3: Enterprise</h3>
+      <div class="box">
+        <div class="box-title">Platform Partnerships</div>
+        <ul style="margin-bottom: 0;">
+          <li>Pitch to platforms that want to differentiate on trust</li>
+          <li>Target: Smaller platforms first (Wirecutter, The Infatuation, etc.)</li>
+          <li>White-label options for integration</li>
+        </ul>
+      </div>
+
+      <!-- COMPETITIVE ADVANTAGE -->
+      <h2><span class="section-number">6</span> Competitive Advantage</h2>
+
+      <h3>Moats</h3>
+      <ol>
+        <li><strong>First-mover in certification:</strong> "Organic popularity" is a new category. We define it.</li>
+        <li><strong>Network effects:</strong> More users → more data → better scores → more users</li>
+        <li><strong>Trust:</strong> Unlike Yelp/Google, we don't sell ads to rated businesses. Ever.</li>
+        <li><strong>Brand:</strong> OPC becomes the standard, like USDA Organic or LEED certification</li>
+      </ol>
+
+      <h3>Why This Is Hard to Compete With</h3>
+      <ul>
+        <li>Yelp/Google can't do this - their business model depends on ad revenue from rated businesses</li>
+        <li>New entrants lack credibility - takes years to build trust as certification authority</li>
+        <li>Data moat deepens over time - historical scores become valuable</li>
+      </ul>
+
+      <!-- FINANCIALS -->
+      <h2><span class="section-number">7</span> Financials</h2>
+
+      <h3>Funding Ask</h3>
+      <div class="highlight">
+        <h3 style="font-size: 32px;">$500K Pre-Seed</h3>
+        <p>18-month runway to prove the model and raise seed.</p>
+      </div>
+
+      <h3>Use of Funds</h3>
+      <table>
+        <tr>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Purpose</th>
+        </tr>
+        <tr>
+          <td>Engineering</td>
+          <td class="money">$250K</td>
+          <td>2 engineers, data pipeline, browser extension</td>
+        </tr>
+        <tr>
+          <td>Data Infrastructure</td>
+          <td class="money">$100K</td>
+          <td>APIs, scraping, compute</td>
+        </tr>
+        <tr>
+          <td>Marketing/PR</td>
+          <td class="money">$75K</td>
+          <td>Launch campaign, content, reports</td>
+        </tr>
+        <tr>
+          <td>Operations</td>
+          <td class="money">$75K</td>
+          <td>Legal, admin, buffer</td>
+        </tr>
+      </table>
+
+      <h3>Milestones for Seed</h3>
+      <ul>
+        <li>50K browser extension installs</li>
+        <li>10K certified businesses in registry</li>
+        <li>5 cities covered (SF, LA, NYC, Chicago, Austin)</li>
+        <li>3+ categories (Restaurants, Products, Hotels)</li>
+        <li>1 enterprise partnership signed</li>
+      </ul>
+
+      <h3>Path to $10M ARR</h3>
+      <table>
+        <tr>
+          <th>Revenue Stream</th>
+          <th>Target</th>
+          <th>ARR</th>
+        </tr>
+        <tr>
+          <td>Extension Premium</td>
+          <td>50K subscribers @ $9/mo</td>
+          <td class="money">$5.4M</td>
+        </tr>
+        <tr>
+          <td>Verification Badges</td>
+          <td>10K businesses @ $250 avg</td>
+          <td class="money">$2.5M</td>
+        </tr>
+        <tr>
+          <td>Enterprise + API</td>
+          <td>20 contracts @ $100K avg</td>
+          <td class="money">$2.0M</td>
+        </tr>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td></td>
+          <td class="money"><strong>$9.9M</strong></td>
+        </tr>
+      </table>
+
+      <!-- TEAM -->
+      <h2><span class="section-number">8</span> Team Needed</h2>
+
+      <h3>Core Team (Pre-Seed)</h3>
+      <ul>
+        <li><strong>Founder/CEO:</strong> Vision, fundraising, partnerships</li>
+        <li><strong>Lead Engineer:</strong> Data pipeline, scoring algorithm, infrastructure</li>
+        <li><strong>Full-Stack Engineer:</strong> Extension, web app, API</li>
+      </ul>
+
+      <h3>Seed Hires</h3>
+      <ul>
+        <li><strong>Data Scientist:</strong> Methodology refinement, anti-gaming</li>
+        <li><strong>Growth Lead:</strong> User acquisition, content, PR</li>
+        <li><strong>Partnerships:</strong> Enterprise sales, platform deals</li>
+      </ul>
+
+      <!-- RISKS -->
+      <h2><span class="section-number">9</span> Risks & Mitigations</h2>
+
+      <table>
+        <tr>
+          <th>Risk</th>
+          <th>Mitigation</th>
+        </tr>
+        <tr>
+          <td>Data access restricted</td>
+          <td>Multi-source approach, partnerships, user-contributed data</td>
+        </tr>
+        <tr>
+          <td>Gaming/manipulation</td>
+          <td>Continuous methodology updates, anomaly detection</td>
+        </tr>
+        <tr>
+          <td>Legal challenges</td>
+          <td>Opinion-based ratings (protected speech), transparent methodology</td>
+        </tr>
+        <tr>
+          <td>Slow adoption</td>
+          <td>Free extension drives awareness, viral mechanics</td>
+        </tr>
+        <tr>
+          <td>Big tech copies</td>
+          <td>Conflict of interest prevents them - they sell ads to rated businesses</td>
+        </tr>
+      </table>
+
+      <!-- APPENDIX -->
+      <h2><span class="section-number">10</span> Technical Architecture</h2>
+
+      <h3>Data Pipeline</h3>
+      <div class="box" style="background: #0a0a0a; color: #e5e5e5; font-family: monospace; font-size: 13px;">
+        [Reddit API] ──┐<br>
+        [Twitter API] ─┼── [Ingestion] → [Processing] → [Scoring] → [Database]<br>
+        [Trends API] ──┤&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+        [Ad Libraries] ┘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[API]<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Extension] ← [Web App] ← [Registry]
+      </div>
+
+      <h3>Stack</h3>
+      <ul>
+        <li><strong>Frontend:</strong> Next.js, TypeScript, Tailwind</li>
+        <li><strong>Backend:</strong> Node.js or Python, PostgreSQL</li>
+        <li><strong>Data:</strong> Airflow for orchestration, BigQuery for analytics</li>
+        <li><strong>Extension:</strong> Chrome Manifest V3, Firefox WebExtension</li>
+        <li><strong>Infrastructure:</strong> Vercel (frontend), Railway/Render (backend), Supabase (DB)</li>
+      </ul>
+
+      <!-- CONCLUSION -->
+      <div class="highlight" style="margin-top: 48px;">
+        <h3>The Opportunity</h3>
+        <p style="font-size: 18px; margin-bottom: 0;">
+          Trust on the internet is broken. OPC fixes it by creating a new standard for earned reputation.
+          Like USDA Organic created a $60B+ market for certified food, OPC creates the market for certified trust.
+          The companies that earn it will display it proudly. The ones that don't will have to explain why.
+        </p>
+      </div>
+
+    </main>
+
+    <footer>
+      <p>
+        Organic Popularity Certification · <a href="https://frontend-kappa-sepia-70.vercel.app" style="color: #1a472a;">opc.authority</a> · jetct.theo@gmail.com
+      </p>
+      <p style="margin-top: 8px;">Version 1.0 · February 2026</p>
+    </footer>
+  </div>
+</body>
+</html>
