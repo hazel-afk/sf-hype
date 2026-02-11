@@ -3,77 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OPC - Full Build Document</title>
+  <title>OPC - The Great Reallocation</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', -apple-system, sans-serif;
-      background: #fafaf8;
-      color: #171717;
+      background: #0a0a0a;
+      color: #e5e5e5;
       line-height: 1.7;
     }
     .container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 48px 24px;
+      padding: 64px 24px;
     }
     header {
       text-align: center;
-      padding-bottom: 48px;
-      border-bottom: 1px solid #e5e5e5;
-      margin-bottom: 48px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid #262626;
+      margin-bottom: 64px;
     }
-    .badge {
-      display: inline-flex;
+    .seal {
+      width: 80px; height: 80px;
+      border: 3px solid #1a472a;
+      border-radius: 50%;
+      display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      background: #1a472a;
-      color: white;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 24px;
+      justify-content: center;
+      margin: 0 auto 32px;
     }
+    .seal-inner {
+      width: 52px; height: 52px;
+      background: #1a472a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .seal svg { width: 28px; height: 28px; color: white; }
     h1 {
-      font-size: 36px;
+      font-size: 42px;
       font-weight: 700;
-      color: #0a0a0a;
-      margin-bottom: 12px;
+      color: #fafafa;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
     }
     .subtitle {
-      font-size: 18px;
-      color: #525252;
+      font-size: 20px;
+      color: #737373;
     }
     h2 {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 700;
-      color: #0a0a0a;
-      margin-top: 48px;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
+      color: #fafafa;
+      margin-top: 64px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
       border-bottom: 2px solid #1a472a;
     }
     h3 {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
-      color: #171717;
-      margin-top: 32px;
-      margin-bottom: 12px;
+      color: #fafafa;
+      margin-top: 40px;
+      margin-bottom: 16px;
     }
     h4 {
       font-size: 14px;
       font-weight: 600;
-      color: #1a472a;
+      color: #22c55e;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-top: 24px;
-      margin-bottom: 8px;
+      margin-top: 32px;
+      margin-bottom: 12px;
     }
     p {
-      font-size: 15px;
-      color: #404040;
+      font-size: 16px;
+      color: #a3a3a3;
       margin-bottom: 16px;
     }
     ul, ol {
@@ -81,147 +88,309 @@
       padding-left: 24px;
     }
     li {
-      font-size: 15px;
-      color: #404040;
-      margin-bottom: 8px;
+      font-size: 16px;
+      color: #a3a3a3;
+      margin-bottom: 10px;
     }
+    strong { color: #fafafa; }
     .highlight {
       background: #1a472a;
       color: white;
-      padding: 24px;
-      border-radius: 8px;
-      margin: 24px 0;
+      padding: 32px;
+      border-radius: 12px;
+      margin: 32px 0;
     }
     .highlight h3 { color: white; margin-top: 0; }
-    .highlight p { color: rgba(255,255,255,0.85); }
-    .box {
-      background: white;
-      border: 1px solid #e5e5e5;
-      border-radius: 8px;
-      padding: 20px;
-      margin: 16px 0;
+    .highlight p { color: rgba(255,255,255,0.85); margin-bottom: 0; }
+    .dark-box {
+      background: #171717;
+      border: 1px solid #262626;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 20px 0;
     }
-    .box-title {
+    .dark-box-title {
       font-weight: 600;
-      color: #0a0a0a;
-      margin-bottom: 8px;
+      color: #fafafa;
+      margin-bottom: 12px;
+      font-size: 17px;
+    }
+    .stat-row {
+      display: flex;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .stat-box {
+      flex: 1;
+      background: #171717;
+      border: 1px solid #262626;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #22c55e;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: #737373;
+      margin-top: 4px;
     }
     .timeline {
       border-left: 2px solid #1a472a;
-      padding-left: 24px;
-      margin: 24px 0;
+      padding-left: 28px;
+      margin: 28px 0;
     }
     .timeline-item {
       position: relative;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -29px;
-      top: 4px;
-      width: 10px;
-      height: 10px;
+      left: -34px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
       background: #1a472a;
       border-radius: 50%;
     }
     .timeline-title {
       font-weight: 600;
-      color: #0a0a0a;
+      color: #fafafa;
+      font-size: 17px;
       margin-bottom: 4px;
     }
     .timeline-meta {
       font-size: 13px;
-      color: #1a472a;
+      color: #22c55e;
       font-weight: 500;
       margin-bottom: 8px;
+    }
+    .timeline-desc {
+      font-size: 15px;
+      color: #a3a3a3;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 16px 0;
-      font-size: 14px;
+      margin: 20px 0;
+      font-size: 15px;
     }
     th, td {
-      padding: 12px;
+      padding: 14px;
       text-align: left;
-      border-bottom: 1px solid #e5e5e5;
+      border-bottom: 1px solid #262626;
     }
     th {
-      background: #fafaf8;
-      font-weight: 600;
-      color: #0a0a0a;
+      color: #737373;
+      font-weight: 500;
     }
-    .money { color: #1a472a; font-weight: 600; }
-    .section-number {
-      display: inline-block;
-      width: 28px;
-      height: 28px;
-      background: #1a472a;
-      color: white;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 28px;
+    td { color: #d4d4d4; }
+    .money { color: #22c55e; font-weight: 600; }
+    .quote {
+      font-size: 24px;
+      font-weight: 600;
+      color: #fafafa;
+      border-left: 3px solid #1a472a;
+      padding-left: 24px;
+      margin: 32px 0;
+      line-height: 1.4;
+    }
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .comparison-box {
+      background: #171717;
+      border: 1px solid #262626;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .comparison-box.bad { border-color: #dc2626; }
+    .comparison-box.good { border-color: #1a472a; }
+    .comparison-title {
       font-size: 14px;
       font-weight: 600;
-      margin-right: 8px;
+      margin-bottom: 12px;
     }
+    .comparison-box.bad .comparison-title { color: #dc2626; }
+    .comparison-box.good .comparison-title { color: #22c55e; }
+    .comparison-list {
+      font-size: 14px;
+      color: #a3a3a3;
+      list-style: none;
+      padding: 0;
+    }
+    .comparison-list li { margin-bottom: 6px; }
     footer {
-      margin-top: 64px;
-      padding-top: 32px;
-      border-top: 1px solid #e5e5e5;
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid #262626;
       text-align: center;
-      color: #737373;
+      color: #525252;
       font-size: 13px;
     }
-    @media print {
-      body { background: white; }
-      .container { padding: 24px; }
+    footer a { color: #1a472a; }
+    @media (max-width: 640px) {
+      .stat-row { flex-direction: column; }
+      .comparison { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-          <path d="M5 12l5 5L19 7" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        BUILD DOCUMENT
+      <div class="seal">
+        <div class="seal-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12l5 5L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
-      <h1>Organic Popularity Certification</h1>
-      <p class="subtitle">Complete Build Plan & Business Strategy</p>
+      <h1>The Great Reallocation</h1>
+      <p class="subtitle">$650 billion is spent annually on advertising.<br>What if that money went into products instead?</p>
     </header>
 
     <main>
-      <!-- VISION -->
-      <h2><span class="section-number">1</span> Vision</h2>
+      <!-- THE THESIS -->
+      <h2>The Thesis</h2>
+
+      <div class="quote">
+        Advertising is a $650 billion annual tax on products that don't earn demand naturally.
+      </div>
+
+      <p>
+        P&G spends $8 billion per year on advertising. Coca-Cola spends $4 billion. Samsung spends $14 billion.
+        This isn't product cost. It's manipulation cost. It's the price they pay to manufacture demand for products
+        that wouldn't be chosen otherwise.
+      </p>
+
+      <p>
+        Meanwhile, Apple spends $1.8B (fraction of revenue). Tesla spends $0. In-N-Out spends $0. Costco spends $0.
+        These companies invest in product instead of promotion. They earn demand organically.
+      </p>
 
       <div class="highlight">
-        <h3>The Problem</h3>
+        <h3>The Insight</h3>
         <p>
-          82% of consumers don't trust online reviews. $650B is spent annually on digital advertising.
-          Every recommendation platform makes money selling ads to the businesses they rank.
-          AI-generated content is making it worse. Trust on the internet is broken.
+          The ratio of organic reputation to paid promotion is measurable. Once measured, it becomes a liability.
+          Once it's a liability, capital reallocates. $650B/year flowing from advertising into product, wages,
+          and R&D would be the largest wealth transfer in history.
         </p>
       </div>
 
-      <h3>The Insight</h3>
+      <h3>The Dead Internet</h3>
       <p>
-        Some businesses earn their reputation. Others buy it. The difference is measurable.
-        Apple spends $1.8B on ads while Samsung spends $14B. Tesla spends $0. In-N-Out spends $0.
-        These companies have organic popularity that can't be bought.
+        82% of consumers don't trust online reviews. 42% of Amazon reviews are fake. Every platform makes money
+        selling ads to the businesses they rank. AI-generated content is flooding every surface. Influencer
+        sponsorships are undisclosed. SEO has destroyed organic discovery.
+      </p>
+      <p>
+        Trust is broken. The internet is dying. And the platforms will never fix it because their business
+        model IS the problem.
       </p>
 
-      <h3>The Solution</h3>
+      <!-- THE MOVEMENT -->
+      <h2>The Movement</h2>
+
       <p>
-        OPC (Organic Popularity Certification) is an independent authority that certifies businesses
-        based on the ratio of organic visibility to paid promotion. Like USDA Organic certifies food,
-        OPC certifies trust. Certification cannot be purchased or influenced.
+        OPC (Organic Popularity Certification) is not a company. It's a movement. It creates the metric that
+        makes advertising obsolete.
       </p>
 
-      <!-- PRODUCT -->
-      <h2><span class="section-number">2</span> Product</h2>
+      <h3>Phase 1: Measurement</h3>
+      <p>
+        OPC measures the ratio of organic visibility to paid promotion for any business. It creates a public,
+        verifiable score that cannot be purchased or influenced. For the first time, consumers can see who
+        earns their reputation and who buys it.
+      </p>
+
+      <h3>Phase 2: Pressure</h3>
+      <p>
+        As OPC becomes mainstream, it becomes an ESG-style metric. Investors start asking: "Why is your OPC
+        score low? Why are you spending $8B on ads instead of R&D?" Low OPC becomes a red flag. High OPC
+        becomes a competitive advantage.
+      </p>
+
+      <h3>Phase 3: Reallocation</h3>
+      <p>
+        Companies shift spending from advertising to product. That $650B starts flowing into:
+      </p>
+      <ul>
+        <li><strong>Product quality</strong> — Better materials, better engineering, better design</li>
+        <li><strong>Wages</strong> — Workers get paid more, talent gets attracted</li>
+        <li><strong>R&D</strong> — Innovation instead of manipulation</li>
+        <li><strong>Sustainability</strong> — Actually doing good instead of marketing good</li>
+        <li><strong>Price reduction</strong> — Products get cheaper when you remove the ad tax</li>
+      </ul>
+
+      <h3>Phase 4: New Default</h3>
+      <p>
+        High OPC becomes table stakes. Advertising becomes a signal of weakness — evidence that your product
+        can't earn attention naturally. The dead internet reverses. Organic content becomes valuable because
+        it's verifiable. Consumer decisions become efficient. Trust is restored.
+      </p>
+
+      <!-- VS P&G -->
+      <h2>The P&G Problem</h2>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-value">$8B</div>
+          <div class="stat-label">P&G annual ad spend</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">$0</div>
+          <div class="stat-label">Tesla annual ad spend</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">10x</div>
+          <div class="stat-label">Tesla market cap vs P&G</div>
+        </div>
+      </div>
+
+      <p>
+        P&G owns Tide, Crest, Gillette, Pampers, Olay, and dozens of other brands. None of them have organic
+        cult followings. None of them inspire loyalty. They exist through shelf placement, distribution
+        agreements, and advertising saturation.
+      </p>
+
+      <div class="comparison">
+        <div class="comparison-box bad">
+          <div class="comparison-title">Low OPC (Manufactured)</div>
+          <ul class="comparison-list">
+            <li>P&G, Unilever, Nestlé</li>
+            <li>Raycon, HelloFresh, most D2C</li>
+            <li>Pay-to-play SaaS (G2, Capterra)</li>
+            <li>Chain restaurants (Applebee's, Panera)</li>
+            <li>Exist through ad spend only</li>
+          </ul>
+        </div>
+        <div class="comparison-box good">
+          <div class="comparison-title">High OPC (Earned)</div>
+          <ul class="comparison-list">
+            <li>Apple, Tesla, Costco, Trader Joe's</li>
+            <li>In-N-Out, Chick-fil-A</li>
+            <li>Anker, Patagonia</li>
+            <li>Most indie restaurants</li>
+            <li>Product earns the demand</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        If OPC becomes mainstream, P&G faces an existential choice: earn organic reputation (hard for commodity
+        goods) or be exposed as buying market share. Their entire business model becomes visible as a
+        manipulation engine.
+      </p>
+
+      <!-- HOW IT WORKS -->
+      <h2>How OPC Works</h2>
 
       <h3>Classification System</h3>
       <table>
@@ -233,103 +402,66 @@
         <tr>
           <td><strong>Class I</strong></td>
           <td>90-100%</td>
-          <td>Exceptional organic reputation. Near-zero ad reliance.</td>
+          <td>Exceptional. Near-zero advertising reliance. Pure word-of-mouth.</td>
         </tr>
         <tr>
           <td><strong>Class II</strong></td>
           <td>75-89%</td>
-          <td>Strong organic presence. Primarily word-of-mouth driven.</td>
+          <td>Strong organic presence. Primarily earned reputation.</td>
         </tr>
         <tr>
           <td><strong>Class III</strong></td>
           <td>60-74%</td>
-          <td>Verified organic presence with some paid amplification.</td>
+          <td>Verified organic. Some paid amplification.</td>
         </tr>
         <tr>
           <td><strong>Not Certified</strong></td>
           <td>&lt;60%</td>
-          <td>Insufficient organic signals. Heavy paid reliance.</td>
+          <td>Manufactured reputation. Heavy advertising dependency.</td>
         </tr>
       </table>
 
-      <h3>Certification Components</h3>
-      <ul>
-        <li><strong>Official Seal:</strong> Visual badge businesses can display (like USDA Organic)</li>
-        <li><strong>Certification ID:</strong> Unique identifier (OPC-2026-XXXXX) for verification</li>
-        <li><strong>Source Data:</strong> Transparent methodology showing how score was calculated</li>
-        <li><strong>Registry:</strong> Public database of all certified entities</li>
-      </ul>
-
-      <h3>Product Roadmap</h3>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-title">Phase 1: Registry (Now)</div>
-          <div class="timeline-meta">Q1 2026</div>
-          <p>Public certification registry for SF restaurants. Establish methodology. Build credibility.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-title">Phase 2: Browser Extension</div>
-          <div class="timeline-meta">Q2 2026</div>
-          <p>Chrome/Firefox extension showing OPC ratings on Yelp, Google, Amazon, DoorDash in real-time.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-title">Phase 3: Category Expansion</div>
-          <div class="timeline-meta">Q3-Q4 2026</div>
-          <p>Expand beyond restaurants: Products, Hotels, Software, Services. National coverage.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-title">Phase 4: API & Enterprise</div>
-          <div class="timeline-meta">2027</div>
-          <p>API for platforms to integrate OPC ratings. Enterprise analytics dashboard.</p>
-        </div>
-      </div>
-
-      <!-- METHODOLOGY -->
-      <h2><span class="section-number">3</span> Methodology</h2>
-
       <h3>Data Sources</h3>
-      <div class="box">
-        <div class="box-title">Organic Signals (Positive)</div>
+      <div class="dark-box">
+        <div class="dark-box-title">Organic Signals (Positive)</div>
         <ul style="margin-bottom: 0;">
-          <li>Reddit mentions and discussions (high weight - hard to game)</li>
-          <li>Twitter/X organic mentions</li>
-          <li>TikTok organic content</li>
+          <li>Reddit mentions and discussions (highest weight — hard to game)</li>
+          <li>Twitter/X organic mentions (non-sponsored)</li>
+          <li>TikTok organic content (non-sponsored)</li>
           <li>Google Trends search interest</li>
-          <li>User-generated content velocity</li>
           <li>Forum discussions (HN, niche communities)</li>
+          <li>User-generated content velocity</li>
         </ul>
       </div>
 
-      <div class="box">
-        <div class="box-title">Paid Signals (Negative)</div>
+      <div class="dark-box">
+        <div class="dark-box-title">Paid Signals (Negative)</div>
         <ul style="margin-bottom: 0;">
-          <li>Platform advertising (Yelp Ads, Google Ads)</li>
-          <li>Meta Ad Library presence</li>
+          <li>Platform advertising (Yelp, Google, Meta Ads)</li>
+          <li>Meta/Google Ad Transparency Libraries</li>
           <li>Influencer sponsorship detection</li>
           <li>Review velocity anomalies (fake review patterns)</li>
           <li>Coordinated PR placement patterns</li>
+          <li>Paid search dominance vs organic</li>
         </ul>
       </div>
 
-      <h3>Scoring Formula</h3>
-      <div class="box" style="background: #0a0a0a; color: #e5e5e5; font-family: monospace;">
-        Organic Score = (Organic Signals / Total Visibility) × 100<br><br>
-        Where Total Visibility = Organic Signals + Paid Signals<br><br>
-        Signals are weighted by reliability and resistance to manipulation.
-      </div>
-
-      <h3>Key Principles</h3>
+      <h3>Core Principles</h3>
       <ol>
-        <li><strong>Independence:</strong> OPC never accepts payment from rated entities</li>
+        <li><strong>Independence:</strong> OPC never accepts payment from rated entities. Ever.</li>
         <li><strong>Transparency:</strong> Methodology is public. Source data is viewable.</li>
-        <li><strong>Objectivity:</strong> Scores are calculated algorithmically, not editorially</li>
-        <li><strong>Auditability:</strong> Each certification includes verification trail</li>
+        <li><strong>Objectivity:</strong> Scores are algorithmic, not editorial.</li>
+        <li><strong>Auditability:</strong> Every certification includes verification trail.</li>
       </ol>
 
       <!-- BUSINESS MODEL -->
-      <h2><span class="section-number">4</span> Business Model</h2>
+      <h2>Business Model</h2>
 
-      <h3>Revenue Streams</h3>
+      <p>
+        The movement needs a sustainable engine. Revenue comes from consumers and platforms who want trust —
+        never from rated businesses.
+      </p>
+
       <table>
         <tr>
           <th>Stream</th>
@@ -337,173 +469,41 @@
           <th>Price</th>
         </tr>
         <tr>
-          <td><strong>Browser Extension</strong></td>
+          <td>Browser Extension</td>
           <td>Freemium</td>
-          <td>Free / $9/mo premium</td>
+          <td class="money">$9/mo premium</td>
         </tr>
         <tr>
-          <td><strong>Verification Badge</strong></td>
+          <td>Verification Badge</td>
           <td>Annual license</td>
-          <td>$99-499/year</td>
+          <td class="money">$99-499/year</td>
         </tr>
         <tr>
-          <td><strong>API Access</strong></td>
+          <td>API Access</td>
           <td>Usage-based</td>
-          <td>$0.01-0.10/call</td>
+          <td class="money">$0.01-0.10/call</td>
         </tr>
         <tr>
-          <td><strong>Enterprise Analytics</strong></td>
+          <td>Enterprise Analytics</td>
           <td>SaaS</td>
-          <td>$5K-50K/year</td>
+          <td class="money">$5K-50K/year</td>
         </tr>
         <tr>
-          <td><strong>Platform Licensing</strong></td>
+          <td>Platform Licensing</td>
           <td>Contract</td>
-          <td>$50K-500K/year</td>
+          <td class="money">$50K-500K/year</td>
         </tr>
         <tr>
-          <td><strong>Data Licensing</strong></td>
+          <td>Data Licensing</td>
           <td>Contract</td>
-          <td>$25K-100K/year</td>
+          <td class="money">$25K-100K/year</td>
         </tr>
       </table>
-
-      <h3>Unit Economics</h3>
-      <div class="box">
-        <div class="box-title">Browser Extension (Core Growth Driver)</div>
-        <ul style="margin-bottom: 0;">
-          <li>Free tier: Unlimited, shows ratings on 3 platforms</li>
-          <li>Premium ($9/mo): All platforms, full source data, alerts</li>
-          <li>Target: 5% free-to-paid conversion</li>
-          <li>At 1M free users → 50K paid → $5.4M ARR</li>
-        </ul>
-      </div>
-
-      <div class="box">
-        <div class="box-title">Verification Badge</div>
-        <ul style="margin-bottom: 0;">
-          <li>Certified businesses can embed official OPC badge on their site</li>
-          <li>Badge links to verification page on OPC registry</li>
-          <li>Class I: $499/yr, Class II: $299/yr, Class III: $99/yr</li>
-          <li>At 10K certified businesses → $2-3M ARR</li>
-        </ul>
-      </div>
-
-      <h3>Why Businesses Pay (Even Though Rating Is Free)</h3>
-      <p>
-        The rating is always free and cannot be influenced. But certified businesses want to:
-      </p>
-      <ul>
-        <li>Display the official badge (like SSL certificates or Michelin stars)</li>
-        <li>Get analytics on their organic score over time</li>
-        <li>Benchmark against competitors</li>
-        <li>Receive alerts when score changes</li>
-      </ul>
-
-      <!-- GO TO MARKET -->
-      <h2><span class="section-number">5</span> Go-to-Market</h2>
-
-      <h3>Phase 1: Establish Authority</h3>
-      <div class="box">
-        <div class="box-title">Content & PR</div>
-        <ul style="margin-bottom: 0;">
-          <li>Annual "State of Organic Trust" report (gets press, establishes thought leadership)</li>
-          <li>"Dead Internet Theory" narrative - position as solution to AI/bot/fake review crisis</li>
-          <li>High-profile certifications: Call out Apple, Tesla, In-N-Out as Class I examples</li>
-          <li>Wall of Shame: Highlight heavily-promoted brands with low organic scores</li>
-        </ul>
-      </div>
-
-      <h3>Phase 2: Consumer Adoption</h3>
-      <div class="box">
-        <div class="box-title">Browser Extension Launch</div>
-        <ul style="margin-bottom: 0;">
-          <li>Free extension showing ratings on Yelp, Google, Amazon</li>
-          <li>Viral loop: Users share ratings on social media</li>
-          <li>Target: 100K installs in first 6 months</li>
-          <li>Partner with consumer advocacy groups</li>
-        </ul>
-      </div>
-
-      <h3>Phase 3: Enterprise</h3>
-      <div class="box">
-        <div class="box-title">Platform Partnerships</div>
-        <ul style="margin-bottom: 0;">
-          <li>Pitch to platforms that want to differentiate on trust</li>
-          <li>Target: Smaller platforms first (Wirecutter, The Infatuation, etc.)</li>
-          <li>White-label options for integration</li>
-        </ul>
-      </div>
-
-      <!-- COMPETITIVE ADVANTAGE -->
-      <h2><span class="section-number">6</span> Competitive Advantage</h2>
-
-      <h3>Moats</h3>
-      <ol>
-        <li><strong>First-mover in certification:</strong> "Organic popularity" is a new category. We define it.</li>
-        <li><strong>Network effects:</strong> More users → more data → better scores → more users</li>
-        <li><strong>Trust:</strong> Unlike Yelp/Google, we don't sell ads to rated businesses. Ever.</li>
-        <li><strong>Brand:</strong> OPC becomes the standard, like USDA Organic or LEED certification</li>
-      </ol>
-
-      <h3>Why This Is Hard to Compete With</h3>
-      <ul>
-        <li>Yelp/Google can't do this - their business model depends on ad revenue from rated businesses</li>
-        <li>New entrants lack credibility - takes years to build trust as certification authority</li>
-        <li>Data moat deepens over time - historical scores become valuable</li>
-      </ul>
-
-      <!-- FINANCIALS -->
-      <h2><span class="section-number">7</span> Financials</h2>
-
-      <h3>Funding Ask</h3>
-      <div class="highlight">
-        <h3 style="font-size: 32px;">$500K Pre-Seed</h3>
-        <p>18-month runway to prove the model and raise seed.</p>
-      </div>
-
-      <h3>Use of Funds</h3>
-      <table>
-        <tr>
-          <th>Category</th>
-          <th>Amount</th>
-          <th>Purpose</th>
-        </tr>
-        <tr>
-          <td>Engineering</td>
-          <td class="money">$250K</td>
-          <td>2 engineers, data pipeline, browser extension</td>
-        </tr>
-        <tr>
-          <td>Data Infrastructure</td>
-          <td class="money">$100K</td>
-          <td>APIs, scraping, compute</td>
-        </tr>
-        <tr>
-          <td>Marketing/PR</td>
-          <td class="money">$75K</td>
-          <td>Launch campaign, content, reports</td>
-        </tr>
-        <tr>
-          <td>Operations</td>
-          <td class="money">$75K</td>
-          <td>Legal, admin, buffer</td>
-        </tr>
-      </table>
-
-      <h3>Milestones for Seed</h3>
-      <ul>
-        <li>50K browser extension installs</li>
-        <li>10K certified businesses in registry</li>
-        <li>5 cities covered (SF, LA, NYC, Chicago, Austin)</li>
-        <li>3+ categories (Restaurants, Products, Hotels)</li>
-        <li>1 enterprise partnership signed</li>
-      </ul>
 
       <h3>Path to $10M ARR</h3>
       <table>
         <tr>
-          <th>Revenue Stream</th>
+          <th>Stream</th>
           <th>Target</th>
           <th>ARR</th>
         </tr>
@@ -529,82 +529,130 @@
         </tr>
       </table>
 
-      <!-- TEAM -->
-      <h2><span class="section-number">8</span> Team Needed</h2>
+      <!-- ROADMAP -->
+      <h2>Roadmap</h2>
 
-      <h3>Core Team (Pre-Seed)</h3>
-      <ul>
-        <li><strong>Founder/CEO:</strong> Vision, fundraising, partnerships</li>
-        <li><strong>Lead Engineer:</strong> Data pipeline, scoring algorithm, infrastructure</li>
-        <li><strong>Full-Stack Engineer:</strong> Extension, web app, API</li>
-      </ul>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-title">Phase 1: Prove the Metric</div>
+          <div class="timeline-meta">Now — Q2 2026</div>
+          <div class="timeline-desc">
+            SF restaurant registry live. Validate methodology. Build credibility. Get press.
+            "State of Organic Trust" report. 100K extension installs.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">Phase 2: Consumer Adoption</div>
+          <div class="timeline-meta">Q2 — Q4 2026</div>
+          <div class="timeline-desc">
+            Browser extension on Chrome/Firefox. Ratings on Yelp, Google, Amazon in real-time.
+            Expand to products, hotels, software. 1M installs. First paying subscribers.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">Phase 3: Movement</div>
+          <div class="timeline-meta">2027</div>
+          <div class="timeline-desc">
+            OPC becomes an ESG-style metric. First investor calls on OPC scores. First company
+            announces "advertising reduction to improve OPC." Media narrative shifts.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">Phase 4: Reallocation</div>
+          <div class="timeline-meta">2028+</div>
+          <div class="timeline-desc">
+            Capital starts moving. Advertising becomes a liability. Product investment becomes
+            the default. The Great Reallocation begins.
+          </div>
+        </div>
+      </div>
 
-      <h3>Seed Hires</h3>
-      <ul>
-        <li><strong>Data Scientist:</strong> Methodology refinement, anti-gaming</li>
-        <li><strong>Growth Lead:</strong> User acquisition, content, PR</li>
-        <li><strong>Partnerships:</strong> Enterprise sales, platform deals</li>
-      </ul>
+      <!-- THE ASK -->
+      <h2>The Ask</h2>
 
-      <!-- RISKS -->
-      <h2><span class="section-number">9</span> Risks & Mitigations</h2>
+      <div class="highlight">
+        <h3 style="font-size: 48px; margin-bottom: 8px;">$500K</h3>
+        <p style="font-size: 18px;">Pre-Seed Round</p>
+      </div>
 
+      <h3>Use of Funds</h3>
       <table>
         <tr>
-          <th>Risk</th>
-          <th>Mitigation</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Purpose</th>
         </tr>
         <tr>
-          <td>Data access restricted</td>
-          <td>Multi-source approach, partnerships, user-contributed data</td>
+          <td>Engineering</td>
+          <td class="money">$250K</td>
+          <td>2 engineers, data pipeline, browser extension</td>
         </tr>
         <tr>
-          <td>Gaming/manipulation</td>
-          <td>Continuous methodology updates, anomaly detection</td>
+          <td>Data Infrastructure</td>
+          <td class="money">$100K</td>
+          <td>APIs, compute, storage</td>
         </tr>
         <tr>
-          <td>Legal challenges</td>
-          <td>Opinion-based ratings (protected speech), transparent methodology</td>
+          <td>Movement Building</td>
+          <td class="money">$75K</td>
+          <td>Annual report, press, content</td>
         </tr>
         <tr>
-          <td>Slow adoption</td>
-          <td>Free extension drives awareness, viral mechanics</td>
-        </tr>
-        <tr>
-          <td>Big tech copies</td>
-          <td>Conflict of interest prevents them - they sell ads to rated businesses</td>
+          <td>Operations</td>
+          <td class="money">$75K</td>
+          <td>Legal, admin, buffer</td>
         </tr>
       </table>
 
-      <!-- APPENDIX -->
-      <h2><span class="section-number">10</span> Technical Architecture</h2>
-
-      <h3>Data Pipeline</h3>
-      <div class="box" style="background: #0a0a0a; color: #e5e5e5; font-family: monospace; font-size: 13px;">
-        [Reddit API] ──┐<br>
-        [Twitter API] ─┼── [Ingestion] → [Processing] → [Scoring] → [Database]<br>
-        [Trends API] ──┤&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
-        [Ad Libraries] ┘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[API]<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Extension] ← [Web App] ← [Registry]
-      </div>
-
-      <h3>Stack</h3>
+      <h3>Milestones for Seed</h3>
       <ul>
-        <li><strong>Frontend:</strong> Next.js, TypeScript, Tailwind</li>
-        <li><strong>Backend:</strong> Node.js or Python, PostgreSQL</li>
-        <li><strong>Data:</strong> Airflow for orchestration, BigQuery for analytics</li>
-        <li><strong>Extension:</strong> Chrome Manifest V3, Firefox WebExtension</li>
-        <li><strong>Infrastructure:</strong> Vercel (frontend), Railway/Render (backend), Supabase (DB)</li>
+        <li>100K browser extension installs</li>
+        <li>25K certified businesses in registry</li>
+        <li>10 markets covered</li>
+        <li>5+ categories (Restaurants, Products, Hotels, Software, Services)</li>
+        <li>"State of Organic Trust" report published, picked up by major press</li>
+        <li>First enterprise partnership signed</li>
       </ul>
 
-      <!-- CONCLUSION -->
-      <div class="highlight" style="margin-top: 48px;">
-        <h3>The Opportunity</h3>
-        <p style="font-size: 18px; margin-bottom: 0;">
-          Trust on the internet is broken. OPC fixes it by creating a new standard for earned reputation.
-          Like USDA Organic created a $60B+ market for certified food, OPC creates the market for certified trust.
-          The companies that earn it will display it proudly. The ones that don't will have to explain why.
+      <!-- WHY NOW -->
+      <h2>Why Now</h2>
+
+      <ul>
+        <li><strong>AI content crisis:</strong> ChatGPT can generate 10,000 fake reviews in minutes. Trust is at all-time low.</li>
+        <li><strong>Dead internet theory:</strong> Becoming reality. Consumers feel it. They're looking for solutions.</li>
+        <li><strong>FTC crackdowns:</strong> Regulatory pressure on fake reviews creates awareness and legitimacy.</li>
+        <li><strong>Ad transparency:</strong> Meta and Google now publish ad libraries. Data is accessible.</li>
+        <li><strong>Gen Z authenticity:</strong> Younger consumers actively reject manufactured content. They'll pay for truth.</li>
+        <li><strong>ESG precedent:</strong> Carbon scores changed behavior. OPC can do the same for advertising.</li>
+      </ul>
+
+      <div class="quote">
+        The platforms will never fix this. Their business model IS the problem. OPC is the solution they can't build.
+      </div>
+
+      <!-- ENDGAME -->
+      <h2>The Endgame</h2>
+
+      <p>
+        This isn't about building a certification authority. It's about changing how capital flows.
+      </p>
+
+      <p>
+        $650 billion per year currently flows into advertising — into manipulation, attention-buying,
+        manufactured demand. That money could instead flow into products, wages, R&D, sustainability.
+      </p>
+
+      <p>
+        OPC makes the invisible visible. Once visible, it becomes a liability. Once it's a liability,
+        the money moves. That's The Great Reallocation.
+      </p>
+
+      <div class="highlight">
+        <h3>The Future</h3>
+        <p>
+          In 10 years, advertising is a signal of weakness. Companies compete on product, not promotion.
+          Consumer decisions are efficient. The dead internet is reversed. Trust is restored.
+          And it started with a simple question: Is this earned, or is this bought?
         </p>
       </div>
 
@@ -612,9 +660,9 @@
 
     <footer>
       <p>
-        Organic Popularity Certification · <a href="https://frontend-kappa-sepia-70.vercel.app" style="color: #1a472a;">opc.authority</a> · jetct.theo@gmail.com
+        Organic Popularity Certification · <a href="https://frontend-kappa-sepia-70.vercel.app">opc.authority</a> · jetct.theo@gmail.com
       </p>
-      <p style="margin-top: 8px;">Version 1.0 · February 2026</p>
+      <p style="margin-top: 12px;">The Great Reallocation · February 2026</p>
     </footer>
   </div>
 </body>

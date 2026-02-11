@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Clarity - Investor Deck</title>
+  <title>OPC - The Great Reallocation</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Inter', -apple-system, sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
+      background: #0a0a0a;
+      color: #fafafa;
       overflow: hidden;
-      -webkit-tap-highlight-color: transparent;
     }
 
     .deck { width: 100vw; height: 100vh; position: relative; }
@@ -25,8 +24,8 @@
       display: none;
       flex-direction: column;
       justify-content: center;
-      padding: 48px 32px 80px;
-      background: #0f172a;
+      padding: 60px 40px 80px;
+      background: #0a0a0a;
       overflow-y: auto;
     }
 
@@ -35,239 +34,300 @@
     .progress-bar {
       position: fixed;
       bottom: 0; left: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #10b981, #34d399);
+      height: 3px;
+      background: #1a472a;
       transition: width 0.3s ease;
     }
 
     .slide-number {
       position: fixed;
-      bottom: 20px; right: 32px;
-      font-size: 13px;
-      color: #475569;
+      bottom: 20px; right: 40px;
+      font-size: 12px;
+      color: #404040;
       font-weight: 500;
     }
 
-    .logo {
+    .nav-hint {
       position: fixed;
-      top: 24px; left: 32px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #f8fafc;
-      font-weight: 700;
-      font-size: 18px;
-      z-index: 100;
+      bottom: 20px; left: 40px;
+      font-size: 11px;
+      color: #404040;
     }
 
-    .logo svg { width: 28px; height: 28px; }
-
     h1 {
-      font-size: 48px;
-      font-weight: 800;
+      font-size: 52px;
+      font-weight: 700;
       line-height: 1.1;
       letter-spacing: -0.03em;
-      color: #f8fafc;
+      color: #fafafa;
     }
 
     h2 {
       font-size: 36px;
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.15;
       letter-spacing: -0.02em;
-      color: #f8fafc;
-      margin-bottom: 32px;
+      color: #fafafa;
+      margin-bottom: 24px;
     }
 
-    p { font-size: 18px; line-height: 1.7; color: #94a3b8; }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #a3a3a3;
+    }
 
-    .subtitle { font-size: 22px; color: #64748b; margin-top: 16px; }
+    .subtitle {
+      font-size: 22px;
+      color: #737373;
+      margin-top: 20px;
+    }
 
-    ul { list-style: none; font-size: 18px; line-height: 2.2; color: #cbd5e1; }
+    .green { color: #22c55e; }
+    .red { color: #dc2626; }
+    .dim { color: #525252; }
 
-    .green { color: #10b981; font-weight: 600; }
-    .red { color: #ef4444; font-weight: 600; }
-    .gold { color: #fbbf24; font-weight: 600; }
-
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    .stat-row {
+      display: flex;
       gap: 16px;
       margin-top: 32px;
     }
 
-    .stat-card {
-      background: #1e293b;
-      border-radius: 16px;
-      padding: 20px;
-      border: 1px solid #334155;
+    .stat-box {
+      flex: 1;
+      background: #171717;
+      border: 1px solid #262626;
+      border-radius: 12px;
+      padding: 24px;
       text-align: center;
     }
 
-    .stat-value { font-size: 36px; font-weight: 700; color: #f8fafc; }
-    .stat-value.green { color: #10b981; }
-    .stat-value.red { color: #ef4444; }
-    .stat-label { font-size: 13px; color: #64748b; margin-top: 4px; }
-
-    .fame-card {
-      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
-      border-radius: 20px;
-      padding: 24px;
-      border: 2px solid #10b981;
-      margin-bottom: 16px;
-    }
-
-    .shame-card {
-      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
-      border-radius: 20px;
-      padding: 24px;
-      border: 2px solid #ef4444;
-      margin-bottom: 16px;
-    }
-
-    .card-header { display: flex; justify-content: space-between; align-items: flex-start; }
-    .card-title { font-size: 18px; font-weight: 700; color: #fff; }
-    .card-subtitle { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 2px; }
-    .card-score { font-size: 28px; font-weight: 700; color: #fff; }
-    .card-stars { font-size: 14px; color: #fbbf24; letter-spacing: 2px; }
-
-    .card-badge {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 11px;
+    .stat-value {
+      font-size: 40px;
       font-weight: 700;
+      color: #fafafa;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #737373;
+      margin-top: 6px;
+    }
+
+    .quote {
+      font-size: 32px;
+      font-weight: 600;
+      color: #fafafa;
+      line-height: 1.3;
+      border-left: 4px solid #1a472a;
+      padding-left: 28px;
+      margin: 24px 0;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .compare-box {
+      background: #171717;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid #262626;
+    }
+
+    .compare-box.bad { border-color: #7f1d1d; }
+    .compare-box.good { border-color: #1a472a; }
+
+    .compare-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    .badge-gold { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
-    .badge-shame { background: rgba(255,255,255,0.15); color: #fff; }
+    .compare-box.bad .compare-title { color: #dc2626; }
+    .compare-box.good .compare-title { color: #22c55e; }
 
-    .card-verdict { margin-top: 10px; font-size: 14px; color: rgba(255,255,255,0.9); }
+    .compare-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #262626;
+      font-size: 15px;
+    }
 
-    .pricing-grid {
+    .compare-item:last-child { border-bottom: none; }
+
+    .compare-name { color: #d4d4d4; }
+    .compare-spend { color: #737373; }
+
+    .phase-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
       margin-top: 32px;
     }
 
-    .pricing-card {
-      background: #1e293b;
-      border-radius: 16px;
-      padding: 24px;
-      border: 1px solid #334155;
-    }
-
-    .pricing-card.featured {
-      border-color: #10b981;
-      background: linear-gradient(135deg, #064e3b 0%, #1e293b 100%);
-    }
-
-    .pricing-name { font-size: 14px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; }
-    .pricing-price { font-size: 32px; font-weight: 700; color: #f8fafc; margin: 8px 0; }
-    .pricing-price span { font-size: 16px; color: #64748b; font-weight: 400; }
-    .pricing-features { list-style: none; margin-top: 16px; font-size: 14px; color: #94a3b8; line-height: 1.8; }
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .category-card {
-      background: #1e293b;
+    .phase-box {
+      background: #171717;
+      border: 1px solid #262626;
       border-radius: 12px;
-      padding: 16px;
-      border: 1px solid #334155;
+      padding: 20px;
     }
 
-    .category-icon { font-size: 24px; margin-bottom: 8px; }
-    .category-name { font-size: 15px; font-weight: 600; color: #f8fafc; }
-    .category-examples { font-size: 12px; color: #64748b; margin-top: 4px; }
+    .phase-box.active { border-color: #1a472a; background: linear-gradient(135deg, #0f291a 0%, #171717 100%); }
 
-    .roadmap { margin-top: 24px; }
+    .phase-num {
+      font-size: 12px;
+      color: #1a472a;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
 
-    .phase {
-      padding: 20px 0;
-      border-bottom: 1px solid #334155;
+    .phase-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fafafa;
+      margin-bottom: 6px;
+    }
+
+    .phase-desc {
+      font-size: 13px;
+      color: #737373;
+    }
+
+    .flow {
       display: flex;
-      gap: 16px;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin: 40px 0;
     }
 
-    .phase:last-child { border-bottom: none; }
+    .flow-box {
+      background: #171717;
+      border: 1px solid #262626;
+      border-radius: 12px;
+      padding: 24px 32px;
+      text-align: center;
+    }
 
-    .phase-marker {
-      width: 10px; height: 10px;
-      background: #10b981;
+    .flow-box.bad { border-color: #7f1d1d; }
+    .flow-box.good { border-color: #1a472a; }
+
+    .flow-value {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .flow-box.bad .flow-value { color: #dc2626; }
+    .flow-box.good .flow-value { color: #22c55e; }
+
+    .flow-label {
+      font-size: 13px;
+      color: #737373;
+      margin-top: 4px;
+    }
+
+    .flow-arrow {
+      font-size: 32px;
+      color: #1a472a;
+    }
+
+    .seal-hero {
+      width: 140px; height: 140px;
+      border: 4px solid #1a472a;
       border-radius: 50%;
-      margin-top: 6px;
-      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0a0a0a;
+      margin: 0 auto 32px;
     }
 
-    .phase.future .phase-marker { background: #475569; }
-    .phase.future { opacity: 0.6; }
+    .seal-hero-inner {
+      width: 90px; height: 90px;
+      background: #1a472a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    .phase-title { font-size: 15px; font-weight: 600; color: #f8fafc; }
-    .phase-desc { font-size: 13px; color: #64748b; margin-top: 2px; }
+    .seal-hero svg {
+      width: 44px; height: 44px;
+      color: white;
+    }
 
     .ask-card {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      border-radius: 24px;
+      background: #1a472a;
+      border-radius: 16px;
       padding: 48px;
       text-align: center;
       margin-top: 32px;
-      color: #fff;
     }
 
-    .ask-amount { font-size: 64px; font-weight: 800; }
-    .ask-label { font-size: 18px; opacity: 0.9; margin-top: 8px; }
+    .ask-amount {
+      font-size: 64px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .ask-label {
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      margin-top: 8px;
+    }
+
+    .revenue-table {
+      width: 100%;
+      margin-top: 24px;
+      border-collapse: collapse;
+    }
+
+    .revenue-table th, .revenue-table td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid #262626;
+      font-size: 16px;
+    }
+
+    .revenue-table th { color: #737373; font-weight: 500; }
+    .revenue-table td { color: #d4d4d4; }
+    .revenue-table .money { color: #22c55e; font-weight: 600; }
+
+    .title-slide { text-align: center; align-items: center; }
 
     .demo-btn {
       display: inline-block;
       margin-top: 32px;
-      padding: 18px 48px;
-      background: #10b981;
+      padding: 16px 40px;
+      background: #1a472a;
       color: #fff;
-      font-weight: 700;
-      font-size: 16px;
-      border-radius: 14px;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 8px;
       text-decoration: none;
-      transition: all 0.2s;
     }
 
-    .demo-btn:hover { background: #059669; transform: scale(1.02); }
+    .demo-btn:hover { background: #22633a; }
 
-    .title-slide { text-align: center; align-items: center; }
-    .final-slide { text-align: center; align-items: center; }
-
-    .contact { margin-top: 48px; font-size: 16px; color: #64748b; }
-
-    .nav-hint { position: fixed; bottom: 20px; left: 32px; font-size: 12px; color: #334155; }
-
-    .big-quote {
-      font-size: 28px;
-      font-weight: 700;
-      color: #f8fafc;
-      line-height: 1.4;
-      max-width: 600px;
-      border-left: 4px solid #10b981;
-      padding-left: 24px;
-      margin: 24px 0;
+    .contact {
+      margin-top: 40px;
+      font-size: 15px;
+      color: #525252;
     }
 
-    .problem-list {
+    ul {
       list-style: none;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 2;
-      color: #cbd5e1;
+      color: #d4d4d4;
     }
-
-    .problem-list li { margin-bottom: 8px; }
-    .problem-list .platform { color: #64748b; }
 
     @media (min-width: 768px) {
       .slide { padding: 80px 80px 100px; }
@@ -275,362 +335,355 @@
       h2 { font-size: 44px; }
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1200px) {
       .slide { padding: 100px 140px; }
       h1 { font-size: 72px; }
     }
 
-    @media (max-width: 640px) {
-      .stat-grid { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .category-grid { grid-template-columns: 1fr; }
+    @media (max-width: 768px) {
+      .stat-row { flex-direction: column; }
+      .comparison { grid-template-columns: 1fr; }
+      .phase-grid { grid-template-columns: 1fr 1fr; }
+      .flow { flex-direction: column; }
     }
   </style>
 </head>
 <body>
   <div class="deck">
-    <div class="logo">
-      <svg viewBox="0 0 32 32" fill="none">
-        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2.5"/>
-        <path d="M10 16l4 4 8-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Clarity
-    </div>
     <div class="progress-bar" id="progress"></div>
 
     <!-- Slide 1: Title -->
     <div class="slide active title-slide">
-      <h1>The trust layer for the internet.</h1>
-      <p class="subtitle">See who's <span class="green">real</span> and who's <span class="red">paying for it</span> — across everything you buy.</p>
-      <a href="https://frontend-kappa-sepia-70.vercel.app" target="_blank" class="demo-btn">See the Receipts</a>
-      <div class="slide-number">1 / 14</div>
+      <div class="seal-hero">
+        <div class="seal-hero-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12l5 5L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <h1>The Great<br>Reallocation</h1>
+      <p class="subtitle">$650 billion is spent on advertising each year.<br>What if that money went into products instead?</p>
+      <div class="slide-number">1 / 16</div>
     </div>
 
-    <!-- Slide 2: Problem -->
+    <!-- Slide 2: The Number -->
+    <div class="slide title-slide">
+      <h1><span class="red">$650,000,000,000</span></h1>
+      <p class="subtitle">Annual global spending on advertising.<br>This isn't product cost. It's manipulation cost.</p>
+      <div class="slide-number">2 / 16</div>
+    </div>
+
+    <!-- Slide 3: The Problem -->
     <div class="slide">
-      <h2>You can't trust anything online.</h2>
-      <ul class="problem-list">
-        <li><span class="platform">Amazon reviews?</span> <span class="red">Fake. Incentivized. Gamed.</span></li>
-        <li><span class="platform">Yelp ratings?</span> <span class="red">Pay for ads, rank higher.</span></li>
-        <li><span class="platform">Google results?</span> <span class="red">SEO'd. Sponsored. Manipulated.</span></li>
-        <li><span class="platform">Influencer recs?</span> <span class="red">Undisclosed sponsorships.</span></li>
-        <li><span class="platform">Software reviews?</span> <span class="red">Vendors pay for placement.</span></li>
-      </ul>
-      <div class="stat-grid">
-        <div class="stat-card">
+      <h2>This money doesn't create value.</h2>
+      <p>It transfers attention from products that earn demand to products that buy it.</p>
+      <div class="comparison">
+        <div class="compare-box bad">
+          <div class="compare-title">Buys Attention</div>
+          <div class="compare-item">
+            <span class="compare-name">P&G</span>
+            <span class="compare-spend">$8B/year</span>
+          </div>
+          <div class="compare-item">
+            <span class="compare-name">Samsung</span>
+            <span class="compare-spend">$14B/year</span>
+          </div>
+          <div class="compare-item">
+            <span class="compare-name">Coca-Cola</span>
+            <span class="compare-spend">$4B/year</span>
+          </div>
+          <div class="compare-item">
+            <span class="compare-name">Unilever</span>
+            <span class="compare-spend">$7B/year</span>
+          </div>
+        </div>
+        <div class="compare-box good">
+          <div class="compare-title">Earns Attention</div>
+          <div class="compare-item">
+            <span class="compare-name">Tesla</span>
+            <span class="compare-spend">$0/year</span>
+          </div>
+          <div class="compare-item">
+            <span class="compare-name">Costco</span>
+            <span class="compare-spend">$0/year</span>
+          </div>
+          <div class="compare-item">
+            <span class="compare-name">In-N-Out</span>
+            <span class="compare-spend">$0/year</span>
+          </div>
+          <div class="compare-item">
+            <span class="compare-name">Trader Joe's</span>
+            <span class="compare-spend">$0/year</span>
+          </div>
+        </div>
+      </div>
+      <div class="slide-number">3 / 16</div>
+    </div>
+
+    <!-- Slide 4: Apple Insight -->
+    <div class="slide">
+      <h2>Apple vs Samsung</h2>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-value">$1.8B</div>
+          <div class="stat-label">Apple ad spend</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">$14B</div>
+          <div class="stat-label">Samsung ad spend</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">10x</div>
+          <div class="stat-label">Apple market cap vs Samsung</div>
+        </div>
+      </div>
+      <p style="margin-top: 32px;">The best companies don't need to advertise. Their products speak for themselves.</p>
+      <div class="slide-number">4 / 16</div>
+    </div>
+
+    <!-- Slide 5: The Insight -->
+    <div class="slide">
+      <h2>The Insight</h2>
+      <div class="quote">
+        The ratio of organic reputation to paid promotion is measurable.<br><br>
+        Once measured, it becomes a liability.<br><br>
+        Once it's a liability, capital reallocates.
+      </div>
+      <div class="slide-number">5 / 16</div>
+    </div>
+
+    <!-- Slide 6: The Movement -->
+    <div class="slide">
+      <h2>OPC: The Metric That Makes<br>Advertising Obsolete</h2>
+      <p style="margin-bottom: 24px;">Organic Popularity Certification measures the ratio of earned reputation to bought attention. It creates a public, verifiable score that cannot be purchased.</p>
+      <div class="phase-grid">
+        <div class="phase-box active">
+          <div class="phase-num">PHASE 1</div>
+          <div class="phase-title">Measure</div>
+          <div class="phase-desc">Create the metric. Make the invisible visible.</div>
+        </div>
+        <div class="phase-box">
+          <div class="phase-num">PHASE 2</div>
+          <div class="phase-title">Pressure</div>
+          <div class="phase-desc">OPC becomes ESG-style. Investors ask questions.</div>
+        </div>
+        <div class="phase-box">
+          <div class="phase-num">PHASE 3</div>
+          <div class="phase-title">Reallocate</div>
+          <div class="phase-desc">$650B starts moving from ads to product.</div>
+        </div>
+        <div class="phase-box">
+          <div class="phase-num">PHASE 4</div>
+          <div class="phase-title">New Default</div>
+          <div class="phase-desc">Advertising = weakness. Product = everything.</div>
+        </div>
+      </div>
+      <div class="slide-number">6 / 16</div>
+    </div>
+
+    <!-- Slide 7: The Flow -->
+    <div class="slide title-slide">
+      <h2>The Great Reallocation</h2>
+      <div class="flow">
+        <div class="flow-box bad">
+          <div class="flow-value">$650B</div>
+          <div class="flow-label">Advertising</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box good">
+          <div class="flow-value">$650B</div>
+          <div class="flow-label">Product · Wages · R&D</div>
+        </div>
+      </div>
+      <p>The largest wealth transfer in history.</p>
+      <div class="slide-number">7 / 16</div>
+    </div>
+
+    <!-- Slide 8: Trust Crisis -->
+    <div class="slide">
+      <h2>Trust is already broken.</h2>
+      <div class="stat-row">
+        <div class="stat-box">
           <div class="stat-value">82%</div>
-          <div class="stat-label">Don't trust reviews</div>
+          <div class="stat-label">Don't trust online reviews</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-value">$650B</div>
-          <div class="stat-label">Digital ad spend/yr</div>
-        </div>
-        <div class="stat-card">
+        <div class="stat-box">
           <div class="stat-value">42%</div>
           <div class="stat-label">Amazon reviews are fake</div>
         </div>
+        <div class="stat-box">
+          <div class="stat-value">∞</div>
+          <div class="stat-label">AI-generated content</div>
+        </div>
       </div>
-      <div class="slide-number">2 / 14</div>
+      <p style="margin-top: 32px;">The platforms will never fix this. Their business model IS the problem.</p>
+      <div class="slide-number">8 / 16</div>
     </div>
 
-    <!-- Slide 3: Insight -->
+    <!-- Slide 9: P&G -->
     <div class="slide">
-      <h2>The Insight</h2>
-      <div class="big-quote">
-        Advertising leaves fingerprints.<br>We find them.
+      <h2>Taking on P&G</h2>
+      <p style="margin-bottom: 20px;">P&G owns Tide, Crest, Gillette, Pampers. None have organic cult followings. They exist through shelf placement and advertising saturation.</p>
+      <div class="stat-row">
+        <div class="stat-box" style="border-color: #7f1d1d;">
+          <div class="stat-value" style="color: #dc2626;">$8B/yr</div>
+          <div class="stat-label">P&G advertising</div>
+        </div>
+        <div class="stat-box" style="border-color: #7f1d1d;">
+          <div class="stat-value" style="color: #dc2626;">0</div>
+          <div class="stat-label">Cult products</div>
+        </div>
+        <div class="stat-box" style="border-color: #7f1d1d;">
+          <div class="stat-value" style="color: #dc2626;">Low</div>
+          <div class="stat-label">OPC Score</div>
+        </div>
       </div>
-      <p>Every sponsored post. Every paid review. Every influencer deal. Every ad placement. It's all observable data. We just aggregate it.</p>
-      <div class="slide-number">3 / 14</div>
+      <p style="margin-top: 32px;">If OPC becomes mainstream, P&G's entire business model becomes visible as a manipulation engine.</p>
+      <div class="slide-number">9 / 16</div>
     </div>
 
-    <!-- Slide 4: Categories -->
-    <div class="slide">
-      <h2>Every category. One truth score.</h2>
-      <div class="category-grid">
-        <div class="category-card">
-          <div class="category-icon">🍔</div>
-          <div class="category-name">Restaurants</div>
-          <div class="category-examples">Yelp, Google, DoorDash</div>
-        </div>
-        <div class="category-card">
-          <div class="category-icon">📦</div>
-          <div class="category-name">Products</div>
-          <div class="category-examples">Amazon, Sephora, Best Buy</div>
-        </div>
-        <div class="category-card">
-          <div class="category-icon">✈️</div>
-          <div class="category-name">Travel</div>
-          <div class="category-examples">Hotels, Airbnb, Booking</div>
-        </div>
-        <div class="category-card">
-          <div class="category-icon">🔧</div>
-          <div class="category-name">Services</div>
-          <div class="category-examples">Doctors, contractors, lawyers</div>
-        </div>
-        <div class="category-card">
-          <div class="category-icon">📱</div>
-          <div class="category-name">Apps</div>
-          <div class="category-examples">App Store, Play Store</div>
-        </div>
-        <div class="category-card">
-          <div class="category-icon">💻</div>
-          <div class="category-name">Software</div>
-          <div class="category-examples">G2, Capterra, TrustRadius</div>
-        </div>
-      </div>
-      <div class="slide-number">4 / 14</div>
-    </div>
-
-    <!-- Slide 5: Product -->
-    <div class="slide">
-      <h2>The Product</h2>
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div style="font-size: 32px; margin-bottom: 8px;">🏆</div>
-          <div class="stat-value" style="font-size: 20px;">Full Rankings</div>
-          <div class="stat-label">Everything ranked by organic popularity</div>
-        </div>
-        <div class="stat-card">
-          <div style="font-size: 32px; margin-bottom: 8px;">💚</div>
-          <div class="stat-value green" style="font-size: 20px;">Hall of Fame</div>
-          <div class="stat-label">The real ones. Earned it.</div>
-        </div>
-        <div class="stat-card">
-          <div style="font-size: 32px; margin-bottom: 8px;">🧾</div>
-          <div class="stat-value red" style="font-size: 20px;">Wall of Shame</div>
-          <div class="stat-label">Bought their buzz.</div>
-        </div>
-      </div>
-      <div class="slide-number">5 / 14</div>
-    </div>
-
-    <!-- Slide 6: Hall of Fame -->
-    <div class="slide">
-      <h2>💚 Hall of Fame</h2>
-      <div class="fame-card">
-        <div class="card-header">
-          <div>
-            <div class="card-title">In-N-Out Burger</div>
-            <div class="card-subtitle">Restaurants</div>
-          </div>
-          <div style="text-align: right;">
-            <div class="card-score">97</div>
-            <div class="card-stars">★★★★★</div>
-          </div>
-        </div>
-        <div class="card-badge badge-gold">THE GOLD STANDARD</div>
-        <div class="card-verdict">Zero ads. 12,400 organic TikToks. 2,847 Reddit mentions.</div>
-      </div>
-      <div class="fame-card">
-        <div class="card-header">
-          <div>
-            <div class="card-title">Anker Cables</div>
-            <div class="card-subtitle">Products</div>
-          </div>
-          <div style="text-align: right;">
-            <div class="card-score">94</div>
-            <div class="card-stars">★★★★★</div>
-          </div>
-        </div>
-        <div class="card-badge badge-gold">GENUINELY BELOVED</div>
-        <div class="card-verdict">89,000 organic Reddit mentions. Minimal sponsored content.</div>
-      </div>
-      <div class="slide-number">6 / 14</div>
-    </div>
-
-    <!-- Slide 7: Wall of Shame -->
-    <div class="slide">
-      <h2>🧾 Wall of Shame</h2>
-      <div class="shame-card">
-        <div class="card-header">
-          <div>
-            <div class="card-title">Panera Bread</div>
-            <div class="card-subtitle">Restaurants</div>
-          </div>
-          <div style="text-align: right;">
-            <div class="card-score">24</div>
-            <div class="card-stars">★☆☆☆☆</div>
-          </div>
-        </div>
-        <div class="card-badge badge-shame">ALL ADS</div>
-        <div class="card-verdict">890 sponsored posts. 1,200 influencer deals. 23 organic mentions.</div>
-      </div>
-      <div class="shame-card">
-        <div class="card-header">
-          <div>
-            <div class="card-title">Raycon Earbuds</div>
-            <div class="card-subtitle">Products</div>
-          </div>
-          <div style="text-align: right;">
-            <div class="card-score">18</div>
-            <div class="card-stars">★☆☆☆☆</div>
-          </div>
-        </div>
-        <div class="card-badge badge-shame">INFLUENCER MACHINE</div>
-        <div class="card-verdict">2,400+ paid sponsorships. Every YouTuber. No organic love.</div>
-      </div>
-      <div class="slide-number">7 / 14</div>
-    </div>
-
-    <!-- Slide 8: Business Model -->
-    <div class="slide">
-      <h2>Membership Model</h2>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="pricing-name">Free</div>
-          <div class="pricing-price">$0</div>
-          <ul class="pricing-features">
-            <li>10 searches/month</li>
-            <li>Scores only</li>
-            <li>Restaurants only</li>
-            <li>Web only</li>
-          </ul>
-        </div>
-        <div class="pricing-card featured">
-          <div class="pricing-name" style="color: #10b981;">Member</div>
-          <div class="pricing-price">$9<span>/mo</span></div>
-          <ul class="pricing-features">
-            <li>Unlimited searches</li>
-            <li>Full receipts</li>
-            <li>All categories</li>
-            <li>Browser extension</li>
-          </ul>
-        </div>
-        <div class="pricing-card">
-          <div class="pricing-name">Pro</div>
-          <div class="pricing-price">$29<span>/mo</span></div>
-          <ul class="pricing-features">
-            <li>Everything in Member</li>
-            <li>API access</li>
-            <li>Bulk lookups</li>
-            <li>Alerts & exports</li>
-          </ul>
-        </div>
-      </div>
-      <p style="margin-top: 32px; text-align: center; font-size: 15px;">
-        <span class="green">We never take money from rated businesses. Ever.</span>
-      </p>
-      <div class="slide-number">8 / 14</div>
-    </div>
-
-    <!-- Slide 9: Why Now -->
+    <!-- Slide 10: Why Now -->
     <div class="slide">
       <h2>Why Now</h2>
       <ul>
-        <li><span class="red">AI content</span> flooding every platform — trust collapsing</li>
-        <li><span class="red">FTC crackdowns</span> on fake reviews — awareness rising</li>
-        <li><span class="green">Gen Z</span> demands authenticity — willing to pay for truth</li>
-        <li><span class="green">Ad transparency data</span> now publicly accessible</li>
-        <li><span class="red">Review fatigue</span> — people know they're being manipulated</li>
+        <li><span class="red">Dead internet theory</span> — becoming reality. Bots everywhere.</li>
+        <li><span class="red">AI content crisis</span> — 10,000 fake reviews in minutes.</li>
+        <li><span class="green">FTC crackdowns</span> — regulatory tailwinds.</li>
+        <li><span class="green">Ad transparency data</span> — now publicly accessible.</li>
+        <li><span class="green">Gen Z authenticity</span> — will pay for truth.</li>
+        <li><span class="green">ESG precedent</span> — carbon scores changed behavior.</li>
       </ul>
-      <p style="margin-top: 32px;">The platforms will never fix this. <span class="gold">They ARE the problem.</span></p>
-      <div class="slide-number">9 / 14</div>
+      <div class="slide-number">10 / 16</div>
     </div>
 
-    <!-- Slide 10: Roadmap -->
+    <!-- Slide 11: Business Model -->
     <div class="slide">
-      <h2>Roadmap</h2>
-      <div class="roadmap">
-        <div class="phase">
-          <div class="phase-marker"></div>
-          <div>
-            <div class="phase-title">Restaurants (POC)</div>
-            <div class="phase-desc">✅ Live now — proving the model</div>
-          </div>
-        </div>
-        <div class="phase">
-          <div class="phase-marker"></div>
-          <div>
-            <div class="phase-title">Browser Extension</div>
-            <div class="phase-desc">Q1 2026 — 10K installs target</div>
-          </div>
-        </div>
-        <div class="phase future">
-          <div class="phase-marker"></div>
-          <div>
-            <div class="phase-title">Products & E-commerce</div>
-            <div class="phase-desc">Q2 2026 — Amazon, Sephora coverage</div>
-          </div>
-        </div>
-        <div class="phase future">
-          <div class="phase-marker"></div>
-          <div>
-            <div class="phase-title">Membership Launch</div>
-            <div class="phase-desc">Q2 2026 — $50K MRR target</div>
-          </div>
-        </div>
-        <div class="phase future">
-          <div class="phase-marker"></div>
-          <div>
-            <div class="phase-title">All Categories</div>
-            <div class="phase-desc">Q3 2026 — Travel, Services, Software</div>
-          </div>
-        </div>
-        <div class="phase future">
-          <div class="phase-marker"></div>
-          <div>
-            <div class="phase-title">Series A</div>
-            <div class="phase-desc">Q4 2026 — 50K paying members</div>
-          </div>
-        </div>
-      </div>
-      <div class="slide-number">10 / 14</div>
+      <h2>Business Model</h2>
+      <p style="margin-bottom: 16px; font-size: 15px; color: #737373;">Never accept payment from rated businesses. Ever.</p>
+      <table class="revenue-table">
+        <tr>
+          <th>Stream</th>
+          <th>Model</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td>Browser Extension</td>
+          <td>Freemium</td>
+          <td class="money">$9/mo premium</td>
+        </tr>
+        <tr>
+          <td>Verification Badge</td>
+          <td>License</td>
+          <td class="money">$99-499/yr</td>
+        </tr>
+        <tr>
+          <td>API + Enterprise</td>
+          <td>Contract</td>
+          <td class="money">$5K-500K/yr</td>
+        </tr>
+      </table>
+      <div class="slide-number">11 / 16</div>
     </div>
 
-    <!-- Slide 11: Market -->
+    <!-- Slide 12: Path to $10M -->
     <div class="slide">
-      <h2>Market Opportunity</h2>
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-value">$5.7T</div>
-          <div class="stat-label">E-commerce market</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">$1.9T</div>
-          <div class="stat-label">Travel market</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">$700B</div>
-          <div class="stat-label">Software market</div>
-        </div>
-      </div>
-      <p style="margin-top: 32px;">Every purchase decision online needs a trust layer. We're building it.</p>
-      <div class="slide-number">11 / 14</div>
+      <h2>Path to $10M ARR</h2>
+      <table class="revenue-table">
+        <tr>
+          <th>Stream</th>
+          <th>Target</th>
+          <th>ARR</th>
+        </tr>
+        <tr>
+          <td>Extension Premium</td>
+          <td>50K @ $9/mo</td>
+          <td class="money">$5.4M</td>
+        </tr>
+        <tr>
+          <td>Verification Badges</td>
+          <td>10K @ $250 avg</td>
+          <td class="money">$2.5M</td>
+        </tr>
+        <tr>
+          <td>Enterprise + API</td>
+          <td>20 @ $100K avg</td>
+          <td class="money">$2.0M</td>
+        </tr>
+        <tr style="border-top: 2px solid #404040;">
+          <td><strong>Total</strong></td>
+          <td></td>
+          <td class="money"><strong>$9.9M</strong></td>
+        </tr>
+      </table>
+      <div class="slide-number">12 / 16</div>
     </div>
 
-    <!-- Slide 12: Ask -->
+    <!-- Slide 13: The Ask -->
     <div class="slide">
       <h2>The Ask</h2>
       <div class="ask-card">
         <div class="ask-amount">$500K</div>
-        <div class="ask-label">Pre-seed Round</div>
+        <div class="ask-label">Pre-Seed Round</div>
       </div>
       <p style="margin-top: 32px; text-align: center;">
-        Engineering team. Data infrastructure. Multi-category expansion.<br>
-        <span class="green">Goal: 50K members → prove retention → Series A</span>
+        Engineering. Data infrastructure. Movement building.<br>
+        <span class="green">Goal: 100K installs. First press. First reallocation.</span>
       </p>
-      <div class="slide-number">12 / 14</div>
+      <div class="slide-number">13 / 16</div>
     </div>
 
-    <!-- Slide 13: Vision -->
+    <!-- Slide 14: Market -->
+    <div class="slide">
+      <h2>Market Opportunity</h2>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-value">$650B</div>
+          <div class="stat-label">Annual ad spend (target)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">$60B+</div>
+          <div class="stat-label">USDA Organic market created</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">$8T+</div>
+          <div class="stat-label">Consumer spending affected</div>
+        </div>
+      </div>
+      <p style="margin-top: 32px;">USDA Organic created a $60B market by certifying food. OPC certifies trust.</p>
+      <div class="slide-number">14 / 16</div>
+    </div>
+
+    <!-- Slide 15: The Future -->
+    <div class="slide">
+      <h2>The Future</h2>
+      <div class="quote">
+        In 10 years, advertising is a signal of weakness.<br><br>
+        Companies compete on product, not promotion.<br><br>
+        The dead internet is reversed.<br><br>
+        Trust is restored.
+      </div>
+      <div class="slide-number">15 / 16</div>
+    </div>
+
+    <!-- Slide 16: Close -->
     <div class="slide title-slide">
-      <h1>Clarity becomes the trust layer for the internet.</h1>
-      <p class="subtitle">Every purchase. Every booking. Every hire. Every download.<br>One question: <span class="gold">Is this real, or is this marketing?</span></p>
-      <div class="slide-number">13 / 14</div>
-    </div>
-
-    <!-- Slide 14: Close -->
-    <div class="slide final-slide">
-      <h1>Clarity</h1>
-      <p class="subtitle">Stop getting played.</p>
-      <a href="https://frontend-kappa-sepia-70.vercel.app" target="_blank" class="demo-btn">See the Receipts</a>
+      <div class="seal-hero">
+        <div class="seal-hero-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12l5 5L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <h1>OPC</h1>
+      <p class="subtitle">The metric that makes advertising obsolete.</p>
+      <a href="https://frontend-kappa-sepia-70.vercel.app" target="_blank" class="demo-btn">View Live Registry</a>
       <div class="contact">jetct.theo@gmail.com</div>
-      <div class="slide-number">14 / 14</div>
+      <div class="slide-number">16 / 16</div>
     </div>
 
   </div>
 
-  <div class="nav-hint">← → or swipe to navigate</div>
+  <div class="nav-hint">← → or tap to navigate</div>
 
   <script>
     const slides = document.querySelectorAll('.slide');
