@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clarity - Whitepaper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #fff;
+      color: #1e293b;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 48px;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 48px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #2563eb;
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .logo svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #64748b;
+    }
+
+    .meta {
+      margin-top: 24px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 48px;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0f172a;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #475569;
+      margin-bottom: 16px;
+    }
+
+    ul, ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+      color: #475569;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .highlight-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .stat-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .formula {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 24px 0;
+      font-family: monospace;
+      font-size: 14px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    td {
+      color: #475569;
+    }
+
+    .stars {
+      color: #f59e0b;
+    }
+
+    footer {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 28px; }
+      h2 { font-size: 20px; }
+      .stat-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <svg viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M10 16l4 4 8-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Clarity
+      </div>
+      <h1>Organic Popularity Ratings</h1>
+      <p class="subtitle">A methodology for measuring authentic consumer interest</p>
+      <p class="meta">Version 1.0 · February 2026</p>
+    </header>
+
+    <main>
+      <h2>Executive Summary</h2>
+      <p>
+        Clarity is a rating system that measures organic popularity—the degree to which a business's reputation is driven by genuine consumer interest versus paid advertising. In an era of AI-generated content, influencer marketing, and ad saturation, consumers have lost the ability to distinguish authentic recommendations from manufactured visibility.
+      </p>
+      <p>
+        Our methodology analyzes publicly observable signals to estimate the ratio of organic engagement to paid promotion, producing a 1-5 star rating that helps consumers identify businesses with genuinely earned reputations.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-value">82%</div>
+          <div class="stat-label">Don't trust online reviews</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">$650B</div>
+          <div class="stat-label">Annual digital ad spend</div>
+        </div>
+      </div>
+
+      <h2>The Problem</h2>
+      <p>
+        Online recommendations have become unreliable. Every major platform—Yelp, Google, Amazon, TripAdvisor—derives significant revenue from advertising sold to the businesses they claim to objectively rank. This creates an inherent conflict of interest that erodes consumer trust.
+      </p>
+
+      <h3>Contributing Factors</h3>
+      <ul>
+        <li><strong>Paid search placement:</strong> Businesses pay to appear at the top of results regardless of quality</li>
+        <li><strong>Review manipulation:</strong> Fake reviews, incentivized reviews, and review gating distort ratings</li>
+        <li><strong>Influencer marketing:</strong> Undisclosed sponsorships disguised as organic recommendations</li>
+        <li><strong>AI-generated content:</strong> Automated review generation flooding platforms</li>
+        <li><strong>PR and media placement:</strong> Paid articles presented as editorial content</li>
+      </ul>
+
+      <p>
+        The result: consumers cannot determine whether a business is popular because it's good, or because it spends heavily on marketing.
+      </p>
+
+      <h2>The Solution</h2>
+      <p>
+        Clarity provides an independent assessment of organic popularity by analyzing publicly observable signals that indicate paid versus organic visibility. We do not accept payment from rated businesses, ensuring our ratings remain unbiased.
+      </p>
+
+      <div class="highlight-box">
+        <p><strong>Core Principle:</strong> A business with high organic popularity and low paid visibility has earned its reputation through quality. A business with low organic popularity and high paid visibility has manufactured its reputation through advertising.</p>
+      </div>
+
+      <h2>Methodology</h2>
+
+      <h3>Signal Categories</h3>
+      <p>Our rating system analyzes four categories of publicly observable signals:</p>
+
+      <h3>1. Organic Signals (Positive Indicators)</h3>
+      <ul>
+        <li>Unprompted social media mentions (Reddit, Twitter, TikTok)</li>
+        <li>Organic search interest (Google Trends data)</li>
+        <li>User-generated content volume and sentiment</li>
+        <li>Word-of-mouth velocity (mention growth over time)</li>
+        <li>Community engagement (forum discussions, local press)</li>
+      </ul>
+
+      <h3>2. Paid Signals (Negative Indicators)</h3>
+      <ul>
+        <li>Platform advertising (Yelp Ads, Google Ads)</li>
+        <li>Sponsored social content (Instagram, TikTok, YouTube)</li>
+        <li>Influencer partnerships (disclosed and detectable)</li>
+        <li>PR placement patterns (coordinated media coverage)</li>
+        <li>Review incentivization signals (review velocity anomalies)</li>
+      </ul>
+
+      <h3>Rating Calculation</h3>
+      <p>
+        The Clarity Score (0-100) represents the estimated percentage of a business's visibility that is organically derived. This score maps to a 1-5 star rating:
+      </p>
+
+      <div class="formula">
+Clarity Score = (Organic Signals / Total Visibility Signals) × 100
+
+Star Rating:
+  90-100 = ★★★★★ (Exceptional organic popularity)
+  75-89  = ★★★★☆ (Strong organic presence)
+  55-74  = ★★★☆☆ (Mixed signals)
+  35-54  = ★★☆☆☆ (High paid visibility)
+  0-34   = ★☆☆☆☆ (Very high paid visibility)
+      </div>
+
+      <h3>Signal Weighting</h3>
+      <p>
+        Not all signals carry equal weight. Signals are weighted based on reliability and resistance to manipulation:
+      </p>
+
+      <table>
+        <tr>
+          <th>Signal Type</th>
+          <th>Weight</th>
+          <th>Rationale</th>
+        </tr>
+        <tr>
+          <td>Reddit mentions</td>
+          <td>High</td>
+          <td>Difficult to manipulate at scale, authentic community</td>
+        </tr>
+        <tr>
+          <td>Platform ads (Yelp, Google)</td>
+          <td>High</td>
+          <td>Directly observable, binary signal</td>
+        </tr>
+        <tr>
+          <td>Review velocity patterns</td>
+          <td>Medium</td>
+          <td>Anomalies indicate manipulation</td>
+        </tr>
+        <tr>
+          <td>Social mentions</td>
+          <td>Medium</td>
+          <td>Volume matters, some gaming possible</td>
+        </tr>
+        <tr>
+          <td>Influencer content</td>
+          <td>Medium</td>
+          <td>Disclosure requirements aid detection</td>
+        </tr>
+      </table>
+
+      <h2>Data Sources</h2>
+      <p>Clarity aggregates data from publicly accessible sources:</p>
+      <ul>
+        <li><strong>Social platforms:</strong> Reddit API, Twitter/X API, TikTok public data</li>
+        <li><strong>Search data:</strong> Google Trends, search volume estimates</li>
+        <li><strong>Advertising transparency:</strong> Meta Ad Library, Google Ads Transparency Center</li>
+        <li><strong>Review platforms:</strong> Public review data from Yelp, Google, TripAdvisor</li>
+        <li><strong>Influencer databases:</strong> Sponsored content disclosures</li>
+      </ul>
+
+      <h2>Limitations</h2>
+      <p>We acknowledge the following limitations of our methodology:</p>
+      <ul>
+        <li><strong>Inference, not measurement:</strong> We estimate ad spend and visibility; we do not have access to actual business financial data</li>
+        <li><strong>Platform data access:</strong> API limitations may affect signal completeness</li>
+        <li><strong>New businesses:</strong> Limited data history affects rating accuracy for recently opened businesses</li>
+        <li><strong>Category variation:</strong> Optimal organic/paid ratios may vary by business category</li>
+        <li><strong>Gaming potential:</strong> Sophisticated actors may attempt to manipulate organic signals</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p><strong>Important:</strong> Clarity ratings represent our assessment based on publicly observable signals. They are opinions, not statements of fact about business finances or practices.</p>
+      </div>
+
+      <h2>Use Cases</h2>
+
+      <h3>For Consumers</h3>
+      <p>
+        Clarity helps consumers make informed decisions by revealing the degree to which a business's reputation is earned versus manufactured. A 5-star Clarity rating indicates a business that has achieved popularity through quality and word-of-mouth, not advertising spend.
+      </p>
+
+      <h3>For Platforms</h3>
+      <p>
+        Review platforms, delivery apps, and e-commerce sites can integrate Clarity ratings to differentiate on trust. As consumers become more skeptical of traditional ratings, organic popularity becomes a valuable signal.
+      </p>
+
+      <h3>For Businesses</h3>
+      <p>
+        Businesses with high organic popularity can use Clarity ratings as a badge of authenticity. Unlike paid certifications, a high Clarity rating cannot be purchased—it must be earned through genuine customer satisfaction.
+      </p>
+
+      <h2>Future Development</h2>
+      <p>Our roadmap includes:</p>
+      <ul>
+        <li><strong>Browser extension:</strong> Real-time Clarity ratings on Yelp, Google, Amazon, and DoorDash</li>
+        <li><strong>Category expansion:</strong> Extending beyond restaurants to products, services, and media</li>
+        <li><strong>API access:</strong> Enabling platforms to integrate Clarity ratings</li>
+        <li><strong>Methodology refinement:</strong> Continuous improvement based on new signal sources and validation</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>
+        Trust in online recommendations is broken. Clarity provides a new signal—organic popularity—that helps consumers distinguish genuine quality from manufactured visibility. By analyzing publicly observable data and maintaining independence from rated businesses, we aim to restore trust to consumer decision-making.
+      </p>
+      <p>
+        Organic popularity is not a guarantee of quality, but it is a meaningful signal. A business that achieves popularity without advertising has earned something that cannot be bought.
+      </p>
+    </main>
+
+    <footer>
+      <p>
+        <a href="https://frontend-kappa-sepia-70.vercel.app">Clarity</a> ·
+        <a href="https://frontend-kappa-sepia-70.vercel.app/deck.html">Investor Deck</a> ·
+        jetct.theo@gmail.com
+      </p>
+      <p style="margin-top: 12px;">© 2026 Clarity. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

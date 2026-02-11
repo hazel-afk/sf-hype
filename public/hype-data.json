@@ -1,0 +1,1121 @@
+{
+  "generated_at": "2026-02-10T23:04:14.149218",
+  "restaurants": [
+    {
+      "name": "Tartine Bakery",
+      "cuisine": "Bakery",
+      "neighborhood": "Mission",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 40,
+        "engagement": 20,
+        "recency": 0,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (25 recent mentions)",
+        "High community engagement",
+        "Recent take: \"Hot take: Tartine Bakery is overrated\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Hot take: Tartine Bakery is overrated",
+          "score": 361,
+          "num_comments": 32,
+          "created": "2026-01-20T23:04:14.148417",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock4"
+        },
+        {
+          "title": "Best dishes to order at Tartine Bakery?",
+          "score": 335,
+          "num_comments": 96,
+          "created": "2026-01-16T23:04:14.148405",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Went to Tartine Bakery last night, incredible",
+          "score": 150,
+          "num_comments": 85,
+          "created": "2026-01-27T23:04:14.148412",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148433"
+    },
+    {
+      "name": "Zuni Cafe",
+      "cuisine": "American",
+      "neighborhood": "Hayes Valley",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 40,
+        "engagement": 20,
+        "recency": 10,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (25 recent mentions)",
+        "High community engagement",
+        "Recent take: \"Zuni Cafe was disappointing tbh\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Zuni Cafe was disappointing tbh",
+          "score": 329,
+          "num_comments": 51,
+          "created": "2026-02-09T23:04:14.148485",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        },
+        {
+          "title": "Finally tried Zuni Cafe - lived up to the hype",
+          "score": 322,
+          "num_comments": 51,
+          "created": "2026-01-14T23:04:14.148492",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        },
+        {
+          "title": "Hot take: Zuni Cafe is overrated",
+          "score": 285,
+          "num_comments": 7,
+          "created": "2026-02-07T23:04:14.148494",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148506"
+    },
+    {
+      "name": "State Bird Provisions",
+      "cuisine": "American",
+      "neighborhood": "Fillmore",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 40,
+        "engagement": 20,
+        "recency": 10,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (20 recent mentions)",
+        "High community engagement",
+        "Recent take: \"Hot take: State Bird Provisions is overrated\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Hot take: State Bird Provisions is overrated",
+          "score": 448,
+          "num_comments": 94,
+          "created": "2026-02-06T23:04:14.148542",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        },
+        {
+          "title": "Just had an amazing meal at State Bird Provisions!",
+          "score": 415,
+          "num_comments": 18,
+          "created": "2026-01-26T23:04:14.148545",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Went to State Bird Provisions last night, incredible",
+          "score": 239,
+          "num_comments": 63,
+          "created": "2026-02-09T23:04:14.148553",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock4"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148561"
+    },
+    {
+      "name": "Lazy Bear",
+      "cuisine": "American",
+      "neighborhood": "Mission",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 32,
+        "engagement": 20,
+        "recency": 10,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (16 recent mentions)",
+        "High community engagement",
+        "Recent take: \"Just had an amazing meal at Lazy Bear!\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Just had an amazing meal at Lazy Bear!",
+          "score": 299,
+          "num_comments": 5,
+          "created": "2026-01-18T23:04:14.148577",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Lazy Bear was disappointing tbh",
+          "score": 276,
+          "num_comments": 30,
+          "created": "2026-01-14T23:04:14.148580",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        },
+        {
+          "title": "Finally tried Lazy Bear - lived up to the hype",
+          "score": 194,
+          "num_comments": 58,
+          "created": "2026-02-04T23:04:14.148583",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148593"
+    },
+    {
+      "name": "Nopa",
+      "cuisine": "American",
+      "neighborhood": "NoPa",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 40,
+        "engagement": 20,
+        "recency": 5,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (25 recent mentions)",
+        "High community engagement",
+        "Recent take: \"Went to Nopa last night, incredible\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Went to Nopa last night, incredible",
+          "score": 295,
+          "num_comments": 99,
+          "created": "2026-01-25T23:04:14.148646",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Just had an amazing meal at Nopa!",
+          "score": 228,
+          "num_comments": 76,
+          "created": "2026-02-08T23:04:14.148643",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        },
+        {
+          "title": "Finally tried Nopa - lived up to the hype",
+          "score": 193,
+          "num_comments": 63,
+          "created": "2026-01-18T23:04:14.148654",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock4"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148662"
+    },
+    {
+      "name": "Kokkari Estiatorio",
+      "cuisine": "Greek",
+      "neighborhood": "Financial District",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 32,
+        "engagement": 20,
+        "recency": 0,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (16 recent mentions)",
+        "High community engagement",
+        "Recent take: \"Finally tried Kokkari Estiatorio - lived up to the hype\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Finally tried Kokkari Estiatorio - lived up to the hype",
+          "score": 373,
+          "num_comments": 10,
+          "created": "2026-02-03T23:04:14.148708",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        },
+        {
+          "title": "Just had an amazing meal at Kokkari Estiatorio!",
+          "score": 269,
+          "num_comments": 41,
+          "created": "2026-01-19T23:04:14.148703",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Went to Kokkari Estiatorio last night, incredible",
+          "score": 186,
+          "num_comments": 44,
+          "created": "2026-01-29T23:04:14.148705",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148718"
+    },
+    {
+      "name": "Delfina",
+      "cuisine": "Italian",
+      "neighborhood": "Mission",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 16,
+        "engagement": 20,
+        "recency": 20,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Active Reddit discussion (8 mentions)",
+        "Trending this week",
+        "High community engagement",
+        "Recent take: \"Went to Delfina last night, incredible\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Went to Delfina last night, incredible",
+          "score": 398,
+          "num_comments": 23,
+          "created": "2026-02-09T23:04:14.148734",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Just had an amazing meal at Delfina!",
+          "score": 379,
+          "num_comments": 25,
+          "created": "2026-02-06T23:04:14.148737",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        },
+        {
+          "title": "Hot take: Delfina is overrated",
+          "score": 305,
+          "num_comments": 33,
+          "created": "2026-01-13T23:04:14.148742",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock4"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148750"
+    },
+    {
+      "name": "Rich Table",
+      "cuisine": "American",
+      "neighborhood": "Hayes Valley",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 40,
+        "engagement": 20,
+        "recency": 0,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (20 recent mentions)",
+        "High community engagement",
+        "Recent take: \"Just had an amazing meal at Rich Table!\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Just had an amazing meal at Rich Table!",
+          "score": 411,
+          "num_comments": 91,
+          "created": "2026-01-21T23:04:14.148762",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        },
+        {
+          "title": "Is Rich Table worth the wait?",
+          "score": 338,
+          "num_comments": 95,
+          "created": "2026-01-22T23:04:14.148768",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        },
+        {
+          "title": "Best dishes to order at Rich Table?",
+          "score": 324,
+          "num_comments": 100,
+          "created": "2026-01-12T23:04:14.148772",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148782"
+    },
+    {
+      "name": "Foreign Cinema",
+      "cuisine": "American",
+      "neighborhood": "Mission",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 40,
+        "engagement": 20,
+        "recency": 0,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (23 recent mentions)",
+        "High community engagement",
+        "Recent take: \"Best dishes to order at Foreign Cinema?\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Best dishes to order at Foreign Cinema?",
+          "score": 413,
+          "num_comments": 38,
+          "created": "2026-01-25T23:04:14.148831",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        },
+        {
+          "title": "Just had an amazing meal at Foreign Cinema!",
+          "score": 312,
+          "num_comments": 11,
+          "created": "2026-01-12T23:04:14.148828",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Foreign Cinema was disappointing tbh",
+          "score": 307,
+          "num_comments": 38,
+          "created": "2026-01-16T23:04:14.148826",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148843"
+    },
+    {
+      "name": "Marufuku Ramen",
+      "cuisine": "Japanese",
+      "neighborhood": "Japantown",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 32,
+        "engagement": 20,
+        "recency": 5,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (16 recent mentions)",
+        "High community engagement",
+        "Recent take: \"Best dishes to order at Marufuku Ramen?\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Best dishes to order at Marufuku Ramen?",
+          "score": 424,
+          "num_comments": 24,
+          "created": "2026-01-13T23:04:14.148894",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        },
+        {
+          "title": "Marufuku Ramen was disappointing tbh",
+          "score": 381,
+          "num_comments": 52,
+          "created": "2026-01-19T23:04:14.148897",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock4"
+        },
+        {
+          "title": "Finally tried Marufuku Ramen - lived up to the hype",
+          "score": 321,
+          "num_comments": 31,
+          "created": "2026-01-26T23:04:14.148886",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148904"
+    },
+    {
+      "name": "San Tung",
+      "cuisine": "Chinese",
+      "neighborhood": "Sunset",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 22,
+        "engagement": 20,
+        "recency": 15,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Active Reddit discussion (11 mentions)",
+        "Trending this week",
+        "High community engagement",
+        "Recent take: \"Finally tried San Tung - lived up to the hype\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Finally tried San Tung - lived up to the hype",
+          "score": 416,
+          "num_comments": 99,
+          "created": "2026-01-28T23:04:14.148952",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        },
+        {
+          "title": "Best dishes to order at San Tung?",
+          "score": 403,
+          "num_comments": 35,
+          "created": "2026-02-06T23:04:14.148947",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        },
+        {
+          "title": "Went to San Tung last night, incredible",
+          "score": 348,
+          "num_comments": 97,
+          "created": "2026-02-06T23:04:14.148958",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock4"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148965"
+    },
+    {
+      "name": "Yank Sing",
+      "cuisine": "Chinese",
+      "neighborhood": "SoMa",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 40,
+        "engagement": 20,
+        "recency": 15,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (21 recent mentions)",
+        "Trending this week",
+        "High community engagement",
+        "Recent take: \"Is Yank Sing worth the wait?\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Is Yank Sing worth the wait?",
+          "score": 409,
+          "num_comments": 58,
+          "created": "2026-02-07T23:04:14.148980",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Yank Sing was disappointing tbh",
+          "score": 399,
+          "num_comments": 11,
+          "created": "2026-02-08T23:04:14.148983",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        },
+        {
+          "title": "Just had an amazing meal at Yank Sing!",
+          "score": 240,
+          "num_comments": 16,
+          "created": "2026-01-27T23:04:14.148989",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock4"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148996"
+    },
+    {
+      "name": "The Progress",
+      "cuisine": "American",
+      "neighborhood": "Fillmore",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 40,
+        "engagement": 20,
+        "recency": 5,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (23 recent mentions)",
+        "High community engagement",
+        "Recent take: \"Finally tried The Progress - lived up to the hype\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Finally tried The Progress - lived up to the hype",
+          "score": 443,
+          "num_comments": 40,
+          "created": "2026-01-22T23:04:14.149049",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        },
+        {
+          "title": "Went to The Progress last night, incredible",
+          "score": 268,
+          "num_comments": 17,
+          "created": "2026-02-05T23:04:14.149044",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Hot take: The Progress is overrated",
+          "score": 265,
+          "num_comments": 93,
+          "created": "2026-02-02T23:04:14.149052",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock4"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.149059"
+    },
+    {
+      "name": "Souvla",
+      "cuisine": "Greek",
+      "neighborhood": "Hayes Valley",
+      "hype_score": 100,
+      "score_breakdown": {
+        "reddit_buzz": 32,
+        "engagement": 20,
+        "recency": 0,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (16 recent mentions)",
+        "High community engagement",
+        "Recent take: \"Went to Souvla last night, incredible\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Went to Souvla last night, incredible",
+          "score": 496,
+          "num_comments": 30,
+          "created": "2026-01-21T23:04:14.149174",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        },
+        {
+          "title": "Hot take: Souvla is overrated",
+          "score": 452,
+          "num_comments": 67,
+          "created": "2026-01-14T23:04:14.149165",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        },
+        {
+          "title": "Is Souvla worth the wait?",
+          "score": 355,
+          "num_comments": 75,
+          "created": "2026-01-25T23:04:14.149171",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.149183"
+    },
+    {
+      "name": "La Taqueria",
+      "cuisine": "Mexican",
+      "neighborhood": "Mission",
+      "hype_score": 98,
+      "score_breakdown": {
+        "reddit_buzz": 28,
+        "engagement": 20,
+        "recency": 0,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Active Reddit discussion (14 mentions)",
+        "High community engagement",
+        "Recent take: \"Hot take: La Taqueria is overrated\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Hot take: La Taqueria is overrated",
+          "score": 473,
+          "num_comments": 19,
+          "created": "2026-01-14T23:04:14.148856",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        },
+        {
+          "title": "Just had an amazing meal at La Taqueria!",
+          "score": 294,
+          "num_comments": 12,
+          "created": "2026-01-27T23:04:14.148864",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        },
+        {
+          "title": "Best dishes to order at La Taqueria?",
+          "score": 111,
+          "num_comments": 8,
+          "created": "2026-01-27T23:04:14.148859",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148874"
+    },
+    {
+      "name": "Flour + Water",
+      "cuisine": "Italian",
+      "neighborhood": "Mission",
+      "hype_score": 96,
+      "score_breakdown": {
+        "reddit_buzz": 26,
+        "engagement": 20,
+        "recency": 0,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Active Reddit discussion (13 mentions)",
+        "High community engagement",
+        "Recent take: \"Went to Flour + Water last night, incredible\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Went to Flour + Water last night, incredible",
+          "score": 415,
+          "num_comments": 83,
+          "created": "2026-01-17T23:04:14.148803",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        },
+        {
+          "title": "Just had an amazing meal at Flour + Water!",
+          "score": 362,
+          "num_comments": 30,
+          "created": "2026-01-24T23:04:14.148794",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        },
+        {
+          "title": "Best dishes to order at Flour + Water?",
+          "score": 253,
+          "num_comments": 41,
+          "created": "2026-01-14T23:04:14.148797",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148813"
+    },
+    {
+      "name": "House of Prime Rib",
+      "cuisine": "Steakhouse",
+      "neighborhood": "Nob Hill",
+      "hype_score": 95,
+      "score_breakdown": {
+        "reddit_buzz": 40,
+        "engagement": 20,
+        "recency": 0,
+        "paid_penalty": -15
+      },
+      "trending_reasons": [
+        "Buzzing on Reddit (25 recent mentions)",
+        "High community engagement",
+        "Note: Heavy Yelp advertiser",
+        "Recent take: \"Best dishes to order at House of Prime Rib?\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Best dishes to order at House of Prime Rib?",
+          "score": 420,
+          "num_comments": 49,
+          "created": "2026-01-26T23:04:14.148452",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Just had an amazing meal at House of Prime Rib!",
+          "score": 248,
+          "num_comments": 33,
+          "created": "2026-01-27T23:04:14.148461",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock4"
+        },
+        {
+          "title": "Finally tried House of Prime Rib - lived up to the hype",
+          "score": 186,
+          "num_comments": 90,
+          "created": "2026-01-27T23:04:14.148458",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        }
+      ],
+      "is_paid_heavy": true,
+      "updated_at": "2026-02-10T23:04:14.148471"
+    },
+    {
+      "name": "Liholiho Yacht Club",
+      "cuisine": "Hawaiian",
+      "neighborhood": "Nob Hill",
+      "hype_score": 95,
+      "score_breakdown": {
+        "reddit_buzz": 20,
+        "engagement": 20,
+        "recency": 5,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Active Reddit discussion (10 mentions)",
+        "High community engagement",
+        "Recent take: \"Just had an amazing meal at Liholiho Yacht Club!\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Just had an amazing meal at Liholiho Yacht Club!",
+          "score": 441,
+          "num_comments": 84,
+          "created": "2026-01-28T23:04:14.149140",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        },
+        {
+          "title": "Best dishes to order at Liholiho Yacht Club?",
+          "score": 407,
+          "num_comments": 95,
+          "created": "2026-02-01T23:04:14.149143",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        },
+        {
+          "title": "Hot take: Liholiho Yacht Club is overrated",
+          "score": 351,
+          "num_comments": 96,
+          "created": "2026-01-31T23:04:14.149135",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.149153"
+    },
+    {
+      "name": "Benu",
+      "cuisine": "Asian Fusion",
+      "neighborhood": "SoMa",
+      "hype_score": 93,
+      "score_breakdown": {
+        "reddit_buzz": 18,
+        "engagement": 20,
+        "recency": 5,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Active Reddit discussion (9 mentions)",
+        "High community engagement",
+        "Recent take: \"Finally tried Benu - lived up to the hype\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Finally tried Benu - lived up to the hype",
+          "score": 357,
+          "num_comments": 93,
+          "created": "2026-02-09T23:04:14.148620",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        },
+        {
+          "title": "Is Benu worth the wait?",
+          "score": 348,
+          "num_comments": 80,
+          "created": "2026-01-30T23:04:14.148606",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        },
+        {
+          "title": "Benu was disappointing tbh",
+          "score": 291,
+          "num_comments": 92,
+          "created": "2026-01-11T23:04:14.148616",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148630"
+    },
+    {
+      "name": "Hog Island Oyster",
+      "cuisine": "Seafood",
+      "neighborhood": "Ferry Building",
+      "hype_score": 92,
+      "score_breakdown": {
+        "reddit_buzz": 22,
+        "engagement": 20,
+        "recency": 0,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Active Reddit discussion (11 mentions)",
+        "High community engagement",
+        "Recent take: \"Went to Hog Island Oyster last night, incredible\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Went to Hog Island Oyster last night, incredible",
+          "score": 396,
+          "num_comments": 8,
+          "created": "2026-01-23T23:04:14.149008",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        },
+        {
+          "title": "Finally tried Hog Island Oyster - lived up to the hype",
+          "score": 336,
+          "num_comments": 8,
+          "created": "2026-01-21T23:04:14.149018",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        },
+        {
+          "title": "Best dishes to order at Hog Island Oyster?",
+          "score": 279,
+          "num_comments": 53,
+          "created": "2026-01-11T23:04:14.149015",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.149028"
+    },
+    {
+      "name": "Che Fico",
+      "cuisine": "Italian",
+      "neighborhood": "NoPa",
+      "hype_score": 89,
+      "score_breakdown": {
+        "reddit_buzz": 14,
+        "engagement": 20,
+        "recency": 5,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Active Reddit discussion (7 mentions)",
+        "High community engagement",
+        "Recent take: \"Finally tried Che Fico - lived up to the hype\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Finally tried Che Fico - lived up to the hype",
+          "score": 471,
+          "num_comments": 17,
+          "created": "2026-01-23T23:04:14.149106",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Is Che Fico worth the wait?",
+          "score": 429,
+          "num_comments": 81,
+          "created": "2026-01-28T23:04:14.149115",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock4"
+        },
+        {
+          "title": "Che Fico was disappointing tbh",
+          "score": 200,
+          "num_comments": 32,
+          "created": "2026-01-11T23:04:14.149102",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.149122"
+    },
+    {
+      "name": "Mister Jiu's",
+      "cuisine": "Chinese",
+      "neighborhood": "Chinatown",
+      "hype_score": 88,
+      "score_breakdown": {
+        "reddit_buzz": 18,
+        "engagement": 20,
+        "recency": 0,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Active Reddit discussion (9 mentions)",
+        "High community engagement",
+        "Recent take: \"Hot take: Mister Jiu's is overrated\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Hot take: Mister Jiu's is overrated",
+          "score": 414,
+          "num_comments": 50,
+          "created": "2026-01-23T23:04:14.149071",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        },
+        {
+          "title": "Just had an amazing meal at Mister Jiu's!",
+          "score": 381,
+          "num_comments": 13,
+          "created": "2026-01-24T23:04:14.149077",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        },
+        {
+          "title": "Went to Mister Jiu's last night, incredible",
+          "score": 290,
+          "num_comments": 38,
+          "created": "2026-01-16T23:04:14.149082",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock4"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.149089"
+    },
+    {
+      "name": "Lers Ros",
+      "cuisine": "Thai",
+      "neighborhood": "Tenderloin",
+      "hype_score": 82,
+      "score_breakdown": {
+        "reddit_buzz": 12,
+        "engagement": 20,
+        "recency": 0,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "Active Reddit discussion (6 mentions)",
+        "High community engagement",
+        "Recent take: \"Finally tried Lers Ros - lived up to the hype\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Finally tried Lers Ros - lived up to the hype",
+          "score": 426,
+          "num_comments": 96,
+          "created": "2026-01-11T23:04:14.148919",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Is Lers Ros worth the wait?",
+          "score": 173,
+          "num_comments": 99,
+          "created": "2026-01-11T23:04:14.148925",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock3"
+        },
+        {
+          "title": "Went to Lers Ros last night, incredible",
+          "score": 168,
+          "num_comments": 45,
+          "created": "2026-01-20T23:04:14.148927",
+          "subreddit": "AskSF",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock4"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148934"
+    },
+    {
+      "name": "Burma Superstar",
+      "cuisine": "Burmese",
+      "neighborhood": "Richmond",
+      "hype_score": 71,
+      "score_breakdown": {
+        "reddit_buzz": 6,
+        "engagement": 20,
+        "recency": 10,
+        "paid_penalty": -15
+      },
+      "trending_reasons": [
+        "High community engagement",
+        "Note: Heavy Yelp advertiser",
+        "Recent take: \"Finally tried Burma Superstar - lived up to the hype\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Finally tried Burma Superstar - lived up to the hype",
+          "score": 323,
+          "num_comments": 26,
+          "created": "2026-02-06T23:04:14.148678",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock1"
+        },
+        {
+          "title": "Burma Superstar was disappointing tbh",
+          "score": 204,
+          "num_comments": 60,
+          "created": "2026-01-13T23:04:14.148675",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        },
+        {
+          "title": "Is Burma Superstar worth the wait?",
+          "score": 176,
+          "num_comments": 36,
+          "created": "2026-02-06T23:04:14.148680",
+          "subreddit": "SFFood",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock2"
+        }
+      ],
+      "is_paid_heavy": true,
+      "updated_at": "2026-02-10T23:04:14.148687"
+    },
+    {
+      "name": "Swan Oyster Depot",
+      "cuisine": "Seafood",
+      "neighborhood": "Polk Gulch",
+      "hype_score": 70.6,
+      "score_breakdown": {
+        "reddit_buzz": 2,
+        "engagement": 18.6,
+        "recency": 0,
+        "paid_penalty": 0
+      },
+      "trending_reasons": [
+        "High community engagement",
+        "Recent take: \"Best dishes to order at Swan Oyster Depot?\""
+      ],
+      "reddit_posts": [
+        {
+          "title": "Best dishes to order at Swan Oyster Depot?",
+          "score": 148,
+          "num_comments": 38,
+          "created": "2026-01-19T23:04:14.148520",
+          "subreddit": "sanfrancisco",
+          "url": "https://reddit.com/r/sanfrancisco/comments/mock0"
+        }
+      ],
+      "is_paid_heavy": false,
+      "updated_at": "2026-02-10T23:04:14.148529"
+    }
+  ],
+  "data_sources": [
+    "Reddit (r/sanfrancisco, r/AskSF, r/SFFood)"
+  ],
+  "note": "Scores reflect organic social buzz, not paid placements"
+}

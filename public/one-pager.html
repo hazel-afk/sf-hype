@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clarity - One Pager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #fff;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid #2563eb;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #2563eb;
+      font-weight: 700;
+      font-size: 24px;
+    }
+    .logo svg { width: 32px; height: 32px; }
+    .tagline {
+      font-size: 14px;
+      color: #64748b;
+      text-align: right;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+    p { font-size: 14px; color: #475569; margin-bottom: 12px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .stat-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .section { margin-top: 24px; }
+    ul {
+      font-size: 14px;
+      color: #475569;
+      padding-left: 20px;
+    }
+    li { margin-bottom: 6px; }
+    .highlight {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+    .highlight h2 { color: #fff; margin-top: 0; }
+    .highlight p { color: rgba(255,255,255,0.9); }
+    .cta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #e2e8f0;
+    }
+    .cta-links { font-size: 13px; color: #64748b; }
+    .cta-links a { color: #2563eb; text-decoration: none; margin-left: 16px; }
+    .contact { font-size: 14px; color: #475569; }
+    @media print {
+      .page { padding: 24px; }
+      .highlight { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <svg viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M10 16l4 4 8-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Clarity
+      </div>
+      <div class="tagline">
+        Organic popularity ratings<br>
+        for restaurants
+      </div>
+    </header>
+
+    <h1>Know what's real.</h1>
+    <p>
+      Clarity rates businesses by organic popularity—the degree to which reputation is earned through genuine customer satisfaction versus paid advertising. We help consumers find what's actually good, not what's most promoted.
+    </p>
+
+    <div class="grid">
+      <div class="stat-box">
+        <div class="stat-value">82%</div>
+        <div class="stat-label">Don't trust online reviews</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value">$650B</div>
+        <div class="stat-label">Spent yearly on digital ads</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>The Problem</h2>
+      <p>
+        Every recommendation platform—Yelp, Google, Amazon—makes money selling ads to the businesses they rank. Consumers can no longer tell what's genuinely popular from what's heavily promoted. AI-generated content is making it worse.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Our Solution</h2>
+      <p>
+        We analyze publicly observable signals—social mentions, review patterns, advertising footprints—to estimate the ratio of organic to paid visibility. High organic popularity = earned reputation. High paid visibility = manufactured reputation.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Product</h2>
+      <ul>
+        <li><strong>Live now:</strong> Restaurant ratings for Bay Area (frontend-kappa-sepia-70.vercel.app)</li>
+        <li><strong>Next:</strong> Browser extension showing Clarity ratings on Yelp, Google, Amazon</li>
+        <li><strong>Future:</strong> API for platforms that want to differentiate on trust</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Business Model</h2>
+      <ul>
+        <li><strong>Consumer:</strong> Free extension, $5/mo premium</li>
+        <li><strong>Enterprise:</strong> API licensing for platforms</li>
+      </ul>
+    </div>
+
+    <div class="highlight">
+      <h2>The Ask</h2>
+      <p style="font-size: 32px; font-weight: 700; margin-bottom: 8px;">$500K Pre-Seed</p>
+      <p>Engineering, data pipeline, 10-market launch. Goal: 50K users, prove retention, raise seed.</p>
+    </div>
+
+    <div class="cta">
+      <div class="contact">
+        <strong>Contact:</strong> jetct.theo@gmail.com
+      </div>
+      <div class="cta-links">
+        <a href="https://frontend-kappa-sepia-70.vercel.app">Live Demo</a>
+        <a href="https://frontend-kappa-sepia-70.vercel.app/deck.html">Full Deck</a>
+        <a href="https://frontend-kappa-sepia-70.vercel.app/whitepaper.html">Whitepaper</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
